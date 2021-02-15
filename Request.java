@@ -33,17 +33,18 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.paynowbiz.tos
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
         "  \"app2appyn\":\"N\"," + //상점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함. 
         "  \"list\": [" + 
-        "    {\"userid\":\"bizbiz_001\",\"usernm\":\"김비즈\",\"userphone\":\"01011110001\",\"validyn\":\"Y\",\"userpw\":\"TossBiz+001!!\"},"+
-        "    {\"userid\":\"bizbiz_002\",\"usernm\":\"이비즈\",\"userphone\":\"01011110002\",\"validyn\":\"Y\",\"userpw\":\"TossBiz+002!!\"},"+ 
-        "    {\"userid\":\"bizbiz_003\",\"usernm\":\"박비즈\",\"userphone\":\"01011110003\",\"validyn\":\"N\",\"userpw\":\"TossBiz+003!!\"}"+ 
+        "    {\"userid\":\"bizbiz_001\",\"usernm\":\"김비즈\",\"userphone\":\"01011110001\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+
+        "    {\"userid\":\"bizbiz_002\",\"usernm\":\"이비즈\",\"userphone\":\"01011110002\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+ 
+        "    {\"userid\":\"bizbiz_003\",\"usernm\":\"박비즈\",\"userphone\":\"01011110003\",\"validyn\":\"N\",\"userpw\":\"chage here\"}"+ 
         "  ]" + 
         "}";
         //고객(거래처) 등록/수정/삭제
         String jsonCustomer = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
+        "  \"app2appyn\":\"N\"," + //상점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함.
         "  \"list\": [" + 
-        "    {\"userid\":\"bizbiz\",\"custcode\":\"A001\",\"custphone\":\"01022220001\",\"custname\":\"역삼약국\",\"useyn\":\"Y\",\"custaddress1\":\"서울특별시 강남구 테헤란로 131\",\"custaddress2\":\"한국지식재산센터(KIPS) 15층\",\"custzip\":\"06133\",\"businessno\":\"4118601799\",\"custfax\":\"0222220001\",\"custemail\":\"yeoksam@medic.com\"},"+
+        "    {\"userid\":\"{mertid}\",\"custcode\":\"A001\",\"custphone\":\"01022220001\",\"custname\":\"역삼약국\",\"useyn\":\"Y\",\"custaddress1\":\"서울특별시 강남구 테헤란로 131\",\"custaddress2\":\"한국지식재산센터(KIPS) 15층\",\"custzip\":\"06133\",\"businessno\":\"4118601799\",\"custfax\":\"0222220001\",\"custemail\":\"yeoksam@medic.com\"},"+
         "    {\"userid\":\"bizbiz_001\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
         "    {\"userid\":\"bizbiz_001\",\"custcode\":\"A002\",\"custphone\":\"01022220003\",\"custname\":\"도래울약국\",\"useyn\":\"N\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
         "    {\"userid\":\"bizbiz_002\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
