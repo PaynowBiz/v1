@@ -30,7 +30,7 @@ sample json code
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
     {"userid": "bizbiz_001","usernm": "김토스","userpw": "TossBiz+001!!","userhp": "01012340001","validyn": "Y"},
-    {"userid": "bizbiz_002",	"usernm": "이토스","userpw": "TossBiz+002!!","userhp": "01012340002","validyn": "Y"}
+    {"userid": "bizbiz_002","usernm": "이토스","userpw": "TossBiz+002!!","userhp": "01012340002","validyn": "Y"}
   ]
 }
 ```
