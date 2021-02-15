@@ -55,7 +55,7 @@ custemail|선택|128|영어/숫자/특수문자 |	고객(거래처)이메일주�
 
 **_[중요] 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
 ```json
-sampe json code
+sample json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
