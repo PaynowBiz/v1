@@ -29,8 +29,8 @@ sample json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
-    {"userid": "bizbiz_001","usernm": "김토스","userpw": "TossBiz+001!!","userhp": "01012340001","validyn": "Y"},
-    {"userid": "bizbiz_002","usernm": "이토스","userpw": "TossBiz+002!!","userhp": "01012340002","validyn": "Y"}
+    {"userid": "bizbiz_001","usernm": "김토스","userpw": "change here","userhp": "01012340001","validyn": "Y"},
+    {"userid": "bizbiz_002","usernm": "이토스","userpw": "change here","userhp": "01012340002","validyn": "Y"}
   ]
 }
 ```
@@ -39,6 +39,7 @@ Entity|Required|Length|Restriction|Description
 -----|-----|-----|-----|-----|
 certkey|필수|16||인증키
 reqid|필수|13|숫자|yyyyMMddHHmmssSSS
+app2appyn|선택|1|Y or N|App(Web) to App 가맹점 유무
 list||||아래 정보를 배열로 처리||
 userid **[PK]**|필수|19|영문, 숫자, _	|영업사원ID, 맵핑 정보 없으면 상점ID{mertid}
 custcode **[PK]**|필수|100|영어, 숫자|고객(거래처)코드
@@ -56,7 +57,7 @@ custemail|선택|128|영어/숫자/특수문자 |	고객(거래처)이메일주�
 ```json
 sampe json code
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}",
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
     {"userid":"{mertid}","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01012345678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"},
     {"userid": "bizbiz_001","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01077775678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"}
