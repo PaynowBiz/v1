@@ -9,7 +9,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
  * BASE64 인코딩
  * URI인코딩(UTF-8)
 
-## 1. 영업사원 등록/수정(servicecode = memeber)
+## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 -----|:-----:|-----|-----|-----|
 certkey|필수|16||인증키
