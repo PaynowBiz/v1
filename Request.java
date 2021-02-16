@@ -136,7 +136,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.paynowbiz.tos
               System.out.printf(String.format("userid[PK]=%s, ", jsonObj.get("userid")));
               System.out.printf(String.format("usernm=%s, ", jsonObj.get("usernm")));
               System.out.printf(String.format("userphone=%s", jsonObj.get("userphone")));
-              System.out.printf(String.format("validyn=%s", jsonObj.get("validyn")));
+              System.out.printf(String.format("validyn=%s\n", jsonObj.get("validyn")));
             }
           //[오류확인] 영업사원별 고객(거래처) 등록/수정/삭제
           }else if("customer".equals(SERVICECODE.get(IDX))){
