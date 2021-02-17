@@ -11,16 +11,16 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
------|:-----:|-----|-----|-----|
-certkey|필수|16||인증키
-reqid|필수|13|숫자|yyyyMMddHHmmssSSS
-app2appyn|필수|1|Y or N|App(Web) to App 가맹점 유무
-list||||아래 정보를 배열로 처리||
-userid **[PK]**|필수|19|영문, 숫자|영업사원ID
-usernm|필수|128||영업사원명
-userphone|필수|11|숫자(-제외)|영업사원 휴대폰번호
-validyn|필수|1|Y or N|활성화상태
-userpw|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드
+|-----|:-----:|-----|-----|-----|
+|`certkey`|필수|16||인증키|
+|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`app2appyn`|필수|1|Y or N|App(Web) to App 가맹점 유무|
+|`list`||||아래 정보를 배열로 처리|
+|`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
+|`usernm`|필수|128||영업사원명|
+|`userphone`|필수|11|숫자(-제외)|영업사원 휴대폰번호|
+|`validyn`|필수|1|Y or N|활성화상태|
+|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
 
 **[중요]userpw : 최초 호출시만 저장. 
 이후 변경을 원하는 경우는 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능**
@@ -39,20 +39,20 @@ sample json code
 |Entity|Required|Length|Restriction|Description
 |-----|-----|-----|-----|-----|
 |`certkey`|필수|16||인증키|
-|reqid|필수|13|숫자|yyyyMMddHHmmssSSS|
-|app2appyn|필수|1|Y or N|App(Web) to App 가맹점 유무|
-|list|||| 아래 정보를 배열로 처리|
-|userid **[PK]**|필수|19|영문, 숫자	|영업사원ID, 맵핑 정보 없으면 상점ID{mertid}|
-|custcode **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
-|custphone **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
-|custname|필수|100||고객(거래처)명|
-|useyn|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
-|custaddress1|필수|128||고객(거래처)주소1|
-|custaddress2|선택|128||고객(거래처)주소2|
-|custzip|선택|5|숫자|고객(거래처)우편번호|
-|businessno|선택|10|숫자(-제외)|고객(거래처)사업자번호|
-|custfax|선택|20|숫자(-제외)|고객(거래처)팩스번호|
-|custemail|선택|128|영어/숫자/특수문자|고객(거래처)이메일주소|
+|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`app2appyn`|필수|1|Y or N|App(Web) to App 가맹점 유무|
+|`list`|||| 아래 정보를 배열로 처리|
+|`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID, 맵핑 정보 없으면 상점ID{mertid}|
+|`custcode` **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
+|`custphone` **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
+|`custname`|필수|100||고객(거래처)명|
+|`useyn`|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
+|`custaddress1`|필수|128||고객(거래처)주소1|
+|`custaddress2`|선택|128||고객(거래처)주소2|
+|`custzip`|선택|5|숫자|고객(거래처)우편번호|
+|`businessno`|선택|10|숫자(-제외)|고객(거래처)사업자번호|
+|`custfax`|선택|20|숫자(-제외)|고객(거래처)팩스번호|
+|`custemail`|선택|128|영어/숫자/특수문자|고객(거래처)이메일주소|
 
 **_[중요] 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
 ```json
