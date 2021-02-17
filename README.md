@@ -78,6 +78,6 @@ result.status|Description
 101|정상적인 호출이 아닌 경우
 104|certkey가 맞지 않을 경우
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
-802|reqid, app2appid가 없을 경우
+802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 문의)
 
