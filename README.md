@@ -36,23 +36,23 @@ sample json code
 }
 ```
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
-Entity|Required|Length|Restriction|Description
------|-----|-----|-----|-----|
-certkey|필수|16||인증키
-reqid|필수|13|숫자|yyyyMMddHHmmssSSS
-app2appyn|필수|1|Y or N|App(Web) to App 가맹점 유무
-list||||아래 정보를 배열로 처리||
-userid **[PK]**|필수|19|영문, 숫자	|영업사원ID, 맵핑 정보 없으면 상점ID{mertid}
-custcode **[PK]**|필수|100|영어, 숫자|고객(거래처)코드
-custphone **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호
-custname|필수|100||고객(거래처)명
-useyn|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제
-custaddress1|필수|128||고객(거래처)주소1
-custaddress2|선택|128||고객(거래처)주소2
-custzip|선택|5|숫자|고객(거래처)우편번호
-businessno|선택|10|숫자(-제외)|고객(거래처)사업자번호
-custfax|선택|20|숫자(-제외)|고객(거래처)팩스번호
-custemail|선택|128|영어/숫자/특수문자 |	고객(거래처)이메일주소
+|Entity|Required|Length|Restriction|Description
+|-----|-----|-----|-----|-----|
+|certkey|필수|16||인증키|
+|reqid|필수|13|숫자|yyyyMMddHHmmssSSS|
+|app2appyn|필수|1|Y or N|App(Web) to App 가맹점 유무|
+|list|||| 아래 정보를 배열로 처리|
+|userid **[PK]**|필수|19|영문, 숫자	|영업사원ID, 맵핑 정보 없으면 상점ID{mertid}|
+|custcode **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
+|custphone **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
+|custname|필수|100||고객(거래처)명|
+|useyn|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
+|custaddress1|필수|128||고객(거래처)주소1|
+|custaddress2|선택|128||고객(거래처)주소2|
+|custzip|선택|5|숫자|고객(거래처)우편번호|
+|businessno|선택|10|숫자(-제외)|고객(거래처)사업자번호|
+|custfax|선택|20|숫자(-제외)|고객(거래처)팩스번호|
+|custemail|선택|128|영어/숫자/특수문자|고객(거래처)이메일주소|
 
 **_[중요] 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
 ```json
@@ -77,7 +77,7 @@ result.status|Description
 201|전체실패
 202|일부성공
 101|정상적인 호출이 아닌 경우
-104|certkey가 맞지 않을 경우
+104|servicecode, certkey가 맞지 않을 경우
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 문의)
