@@ -56,7 +56,7 @@ sample json code
 
 **_[중요] 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
 ```json
-sample request json code
+sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
