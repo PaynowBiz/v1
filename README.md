@@ -38,7 +38,7 @@ sample json code
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|-----|-----|-----|-----|
-|certkey|필수|16||인증키|
+|`certkey`|필수|16||인증키|
 |reqid|필수|13|숫자|yyyyMMddHHmmssSSS|
 |app2appyn|필수|1|Y or N|App(Web) to App 가맹점 유무|
 |list|||| 아래 정보를 배열로 처리|
@@ -81,4 +81,3 @@ result.status|Description
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 문의)
-
