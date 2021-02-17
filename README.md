@@ -2,7 +2,7 @@
 [PaynowBiz API](https://github.com/PaynowBiz/v1/blob/main/Request.java) 테스트를 지원합니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
->mertid = PaynowBiz가입 상점(가맹점)ID, servicecode = 호출할 서비스코드
+>>mertid = PaynowBiz가입 상점(가맹점)ID, servicecode = 호출할 서비스코드
 
 파라미터 data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
@@ -23,7 +23,7 @@ Entity|Required|Length|Restriction|Description
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
 
 **[중요]userpw : 최초 호출시만 저장. 
-이후 변경을 원하는 경우는 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능**
+이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능**
 ```json
 sample json code
 {
