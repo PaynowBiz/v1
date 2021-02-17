@@ -7,7 +7,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 파라미터 data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
  * BASE64 인코딩
- * URI인코딩(UTF-8)
+ * URL인코딩(UTF-8)
 
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
