@@ -2,7 +2,7 @@
 [PaynowBiz API](https://github.com/PaynowBiz/v1/blob/main/Request.java) 테스트를 지원합니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
->>mertid = PaynowBiz가입 상점(가맹점)ID, servicecode = 호출할 서비스코드
+>mertid = PaynowBiz가입 상점(가맹점)ID, servicecode = 호출할 서비스코드
 
 파라미터 data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
