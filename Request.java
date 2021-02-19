@@ -21,7 +21,7 @@ public class Request {
  */
 private final static int IDX = 1;
 private final static List<String> SERVICECODE = Arrays.asList("member", "customer");
-private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 상점ID
+private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키
 private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY
 private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.com/2/v1/"; //운영 URL
@@ -33,7 +33,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         String jsonMember = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
-        "  \"app2appyn\":\"N\"," + //상점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함. 
+        "  \"app2appyn\":\"N\"," + //가맹점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함. 
         "  \"list\": [" + 
         "    {\"userid\":\"biz001\",\"usernm\":\"김비즈\",\"userphone\":\"01011110001\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+
         "    {\"userid\":\"biz002\",\"usernm\":\"이비즈\",\"userphone\":\"01011110002\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+ 
@@ -44,7 +44,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         String jsonCustomer = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
-        "  \"app2appyn\":\"N\"," + //상점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함.
+        "  \"app2appyn\":\"N\"," + //APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함.
         "  \"list\": [" + 
         "    {\"userid\":\"{mertid}\",\"custcode\":\"A001\",\"custphone\":\"01022220001\",\"custname\":\"역삼약국\",\"useyn\":\"Y\",\"custaddress1\":\"서울특별시 강남구 테헤란로 131\",\"custaddress2\":\"한국지식재산센터(KIPS) 15층\",\"custzip\":\"06133\",\"businessno\":\"4118601799\",\"custfax\":\"0222220001\",\"custemail\":\"yeoksam@medic.com\"},"+
         "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
