@@ -19,7 +19,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|App(Web) to App 가맹점 유무|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
 |`usernm`|필수|128||영업사원명|
@@ -44,7 +44,7 @@ sample json code
 |-----|:-----:|-----|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|App(Web) to App 가맹점 유무|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
 |`list`|||| _아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID<br/> 맵핑 정보 없으면 상점ID{mertid}|
 |`custcode` **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
