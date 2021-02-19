@@ -9,6 +9,11 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
  * BASE64 인코딩
  * URL인코딩(UTF-8)
 
+**[중요1] app2appyn 을 Y로 할 경우 영업사원ID에 이니셜ID 가 붙으므로, 상점에서 연동방식을 정확히 확인 후 넘겨야함.
+**[중요2] userpw : 최초 호출시만 저장. 
+이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능**
+**_[중요3] custphone : 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
+
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----|-----|-----|
@@ -22,8 +27,6 @@ Entity|Required|Length|Restriction|Description
 |`validyn`|필수|1|Y or N|활성화상태|
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
 
-**[중요]userpw : 최초 호출시만 저장. 
-이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능**
 ```json
 sample json code
 {
@@ -35,6 +38,7 @@ sample json code
   ]
 }
 ```
+
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----|-----|-----|
@@ -54,7 +58,6 @@ sample json code
 |`custfax`|선택|20|숫자(-제외)|고객(거래처)팩스번호|
 |`custemail`|선택|128|영어/숫자/특수문자|고객(거래처)이메일주소|
 
-**_[중요] 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다._**
 ```json
 sample data json code
 {
