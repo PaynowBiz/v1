@@ -16,7 +16,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 <br/><br/>
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
-|-----|:-----:|-----|-----|-----|
+|-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
@@ -41,7 +41,7 @@ sample json code
 <br/><br/>
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
-|-----|:-----:|-----|-----|-----|
+|-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
@@ -77,7 +77,7 @@ sample result json code
 ```
 
 result.status|Description
------|-----|
+:-----:|-----|
 200|전체성공
 201|전체실패
 202|일부성공
