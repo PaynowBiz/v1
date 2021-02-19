@@ -25,6 +25,7 @@ private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 �
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키
 private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY
 private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.com/2/v1/";
+  
   public static void main(String[] args) {
     try{
         //영업사원 등록/수정
@@ -135,7 +136,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("▶▶ err=%s, ", jsonObj.get("err")));
               System.out.printf(String.format("userid[PK]=%s, ", jsonObj.get("userid")));
               System.out.printf(String.format("usernm=%s, ", jsonObj.get("usernm")));
-              System.out.printf(String.format("userphone=%s", jsonObj.get("userphone")));
+              System.out.printf(String.format("userphone=%s, ", jsonObj.get("userphone")));
               System.out.printf(String.format("validyn=%s\n", jsonObj.get("validyn")));
             }
           //[오류확인] 영업사원별 고객(거래처) 등록/수정/삭제
@@ -145,14 +146,14 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("▶▶ err=%s, ", jsonObj.get("err")));
               System.out.printf(String.format("userid[PK]=%s, ", jsonObj.get("userid")));
               System.out.printf(String.format("custcode[PK]=%s, ", jsonObj.get("custcode")));
-              System.out.printf(String.format("custphone[PK]=%s,", jsonObj.get("custphone")));
+              System.out.printf(String.format("custphone[PK]=%s, ", jsonObj.get("custphone")));
               System.out.printf(String.format("custname=%s, ", jsonObj.get("custname")));
-              System.out.printf(String.format("useyn=%s", jsonObj.get("useyn")));
-              System.out.printf(String.format("custaddress1=%s", jsonObj.get("custaddress1")));
-              System.out.printf(String.format("custaddress2=%s", jsonObj.get("custaddress2")));
-              System.out.printf(String.format("custzip=%s", jsonObj.get("custzip")));
-              System.out.printf(String.format("businessno=%s", jsonObj.get("businessno")));
-              System.out.printf(String.format("custfax=%s", jsonObj.get("custfax")));
+              System.out.printf(String.format("useyn=%s, ", jsonObj.get("useyn")));
+              System.out.printf(String.format("custaddress1=%s, ", jsonObj.get("custaddress1")));
+              System.out.printf(String.format("custaddress2=%s, ", jsonObj.get("custaddress2")));
+              System.out.printf(String.format("custzip=%s, ", jsonObj.get("custzip")));
+              System.out.printf(String.format("businessno=%s, ", jsonObj.get("businessno")));
+              System.out.printf(String.format("custfax=%s, ", jsonObj.get("custfax")));
               System.out.printf(String.format("custemail=%s\n", jsonObj.get("custemail")));
             }
           }
