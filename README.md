@@ -2,7 +2,7 @@
 [PaynowBiz API](https://github.com/PaynowBiz/v1/blob/main/Request.java) 테스트를 지원합니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
->mertid = PaynowBiz가입 상점(가맹점)ID, servicecode = 호출할 서비스코드
+>mertid = PaynowBiz가입 가맹점ID, servicecode = 호출 할 서비스코드
 
 파라미터 data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
@@ -10,7 +10,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
  * URL인코딩(UTF-8)
 <br/><br/>
 ## ※ 주의사항 ※
-* `app2appyn` Y로 할 경우 영업사원ID에 initialname 이 붙으므로, 상점(가맹점)에서 연동방식을 정확히 확인 후 넘겨야 합니다.
+* `app2appyn` Y로 할 경우 영업사원ID에 initialname 이 붙으므로, 가맹점에서 연동방식을 정확히 확인 후 넘겨야 합니다.
 * `userpw` 최초 호출시만 저장. 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 <br/><br/>
@@ -19,7 +19,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
 |`usernm`|필수|128||영업사원명|
@@ -44,9 +44,9 @@ sample json code
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16||인증키|
 |`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점(가맹점) 유무**|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
 |`list`|||| _아래 정보를 배열로 처리_|
-|`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID<br/> 맵핑 정보 없으면 상점ID{mertid}|
+|`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID<br/> 맵핑 정보 없으면 가맹점ID{mertid}|
 |`custcode` **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
 |`custphone` **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
 |`custname`|필수|100||고객(거래처)명|
