@@ -24,8 +24,8 @@ private final static List<String> SERVICECODE = Arrays.asList("member", "custome
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 상점ID
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키
 private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY
-private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.com/2/v1/"; //운영 주소
-                                              //https://stg-paynowbiz.tosspayments.com/2/v1/; //운영 반영전 테스트를 위한 주소
+private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.com/2/v1/"; //운영 URL
+                                              //https://stg-paynowbiz.tosspayments.com/2/v1/; //운영 반영 전 테스트를 위한 URL
   
   public static void main(String[] args) {
     try{
