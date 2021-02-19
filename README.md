@@ -81,4 +81,4 @@ result.status|Description
 104|servicecode, certkey가 맞지 않을 경우
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
-999|시스템 오류가 있을 경우(고객센터 문의)
+999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
