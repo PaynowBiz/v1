@@ -119,7 +119,8 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         String status = String.valueOf(data.get("status"));
         System.out.println("[RESPONSE] result.status = " + status);
         
-        if(!"200".equals(status)) {
+        //전체실패, 일부성공인 경우 오류내용 
+        if("201".equals(status) || "202".equals(status)) {
           String result = String.valueOf(data.get("result"));
           //오류내용 복호화
           String decryptStr = new AES256Util(PAYNOWBIZ_APIKEY).strDecode(result);
