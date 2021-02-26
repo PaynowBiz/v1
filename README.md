@@ -1,5 +1,7 @@
 # PaynowBiz API
-[PaynowBiz API](https://github.com/PaynowBiz/v1/blob/main/Request.java) 테스트를 지원합니다.
+* [V1 테스트 화면](https://stg-paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 할 수 있습니다.
+
+* [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 >mertid = PaynowBiz가입 가맹점ID, servicecode = 호출 할 서비스코드
