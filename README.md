@@ -1,5 +1,5 @@
 # PaynowBiz API
-* [V1 테스트 화면](https://stg-paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 할 수 있습니다.
+* [테스트 화면](https://stg-paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 할 수 있습니다.
 
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
 
