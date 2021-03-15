@@ -94,7 +94,23 @@ sample json code
 ```
 <br>
 
-## 4. 거래(servicecode = payments) RESPONSE 설명
+## 4. RESPONSE SAMPLE
+```json
+sample result json code
+{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
+```
+result.status|Description
+:-----:|-----|
+200|전체성공
+201|전체실패
+202|일부성공
+101|정상적인 호출이 아닌 경우
+104|servicecode, certkey가 맞지 않을 경우
+405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
+802|reqid, app2appyn이 없을 경우
+999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
+
+## 5. 거래(servicecode = payments) RESPONSE 설명
 |Entity|Description
 |-----|-----|
 |`userid`|영업사원ID|
@@ -123,7 +139,7 @@ sample json code
 |`reserved5`|예약필드5|
 <br>
 
-## 5. 정산(servicecode = settlements) RESPONSE 설명
+## 6. 정산(servicecode = settlements) RESPONSE 설명
 |Entity|Description
 |-----|-----|
 |`amount`|매입금액|
@@ -149,7 +165,7 @@ sample json code
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
 
-## 5-1. 정산 매입상태 설명
+## 6-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
 |-----|-----|-----|
 |카드|CA01|매입|
@@ -160,20 +176,3 @@ sample json code
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
-<br/>
-
-## 6. RESPONSE SAMPLE
-```json
-sample result json code
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
-```
-result.status|Description
-:-----:|-----|
-200|전체성공
-201|전체실패
-202|일부성공
-101|정상적인 호출이 아닌 경우
-104|servicecode, certkey가 맞지 않을 경우
-405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
-802|reqid, app2appyn이 없을 경우
-999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
