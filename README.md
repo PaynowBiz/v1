@@ -89,6 +89,35 @@ sample json code
 }
 ```
 <br/><br/>
+## 4. 거래(servicecode = payments) RESPONSE 설명
+|Entity|Description
+|-----|-----|
+|`userid`|영업사원ID|
+|`usernm`|영업사원명|
+|`amount`|결제금액|
+|`servicename`|서비스명(카드,현금)|
+|`status`|결제상태(결제,취소,취소예약)|
+|`oid`|주문번호|
+|`tid`|거래번호|
+|`cardnum`|카드번호|
+|`authnum`|승인번호|
+|`paydate`|결제일(YYYYMMDDHH24MISS)|
+|`canceldate`|취소일(YYYYMMDDHH24MISS)|
+|`financecode`|카드사코드(2자리)|
+|`financename`|카드사명|
+|`installment`|카드할부개월수|
+|`productinfo`|상품명|
+|`cardmemo`|카드결제메모|
+|`custcode`|고객(거래처)코드|
+|`custname`|고객(거래처)명|
+|`cashbill`|현금영수증발급여부(발급,미발급)|
+|`reserved1`|예약필드1|
+|`reserved2`|예약필드2|
+|`reserved3`|예약필드3|
+|`reserved4`|예약필드4|
+|`reserved5`|예약필드5|
+   
+
 ## RESPONSE SAMPLE
 ```json
 sample result json code
