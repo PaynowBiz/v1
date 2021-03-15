@@ -125,18 +125,19 @@ sample json code
 |`vat`|부가세|
 |`authnum`|승인번호|
 |`servicename`|서비스명(카드,현금)|
-|`status`|매입상태(매입,매입취소,결제)|
+|`status`|매입상태(카드:매입,매입취소 ^ 현금:결제,취소)|
 |`oid`|주문번호|
 |`tid`|거래번호|
 |`regdate`|등록일(YYYY-MM-DD)|
-|`adjustdate`|매출일(YYYY-MM-DD)|
 |`paydate`|결제일(YYYY-MM-DD)|
-|`plandate`|지급일(YYYY-MM-DD)|
-|`reqdate`|매입/취소 요청일(YYYY-MM-DD)|
+|`adjustdate`|카드매출일(YYYY-MM-DD)|
+|`plandate`|카드지급일(YYYY-MM-DD)|
+|`reqdate`|카드매입/취소 요청일(YYYY-MM-DD)|
+|`settlementcode`|카드결제기관|
 |`subservice`|카드할부(이자/무이자)|
 |`installment`|카드할부개월수|
-|`productinfo`|상품명|
 |`cardflag`|카드구분(신용,체크)|
+|`productinfo`|상품명|
 |`custcode`|고객(거래처)코드|
 |`custname`|고객(거래처)명|
 |`productinfo`|상품명|
