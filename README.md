@@ -21,8 +21,8 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
-|`certkey`|필수|16||인증키|
-|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
@@ -47,8 +47,8 @@ sample json code
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
-|`certkey`|필수|16||인증키|
-|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
 |`list`|||| _아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID<br/> 맵핑 정보 없으면 가맹점ID{mertid}|
@@ -78,8 +78,8 @@ sample data json code
 ## 3. 거래(servicecode = payments) / 정산(servicecode = settlements) 내역 조회
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
-|`certkey`|필수|16||인증키|
-|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`certkey`|필수|16|영문,|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
 |`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
 |`oid`|선택|11|영문,숫자|주문번호|
