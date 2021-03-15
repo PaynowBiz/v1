@@ -147,8 +147,8 @@ result.status|Description
 |`vat`|부가세|
 |`authnum`|승인번호|
 |`servicename`|서비스명(카드,현금)|
-|`purchasecode`|[매입상태코드](https://github.com/PaynowBiz/v1#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`purchasename`|[매입상태명](https://github.com/PaynowBiz/v1#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasecode`|[매입상태코드](#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasename`|[매입상태명](#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
 |`oid`|주문번호|
 |`tid`|거래번호|
 |`regdate`|등록일(YYYY-MM-DD)|
