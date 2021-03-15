@@ -16,11 +16,11 @@ import org.json.simple.parser.JSONParser;
 
 public class Request {
 /* 실행(IDX) 할 순서를 바꿔가면서 테스트를 진행한다. 
- *       ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제
- * RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
+ *       ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회
+ *       ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
-private final static int IDX = 1;
-private final static List<String> SERVICECODE = Arrays.asList("member", "customer");
+private final static int IDX = 0;
+private final static List<String> SERVICECODE = Arrays.asList("member", "customer","payments","settlements");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키
 private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY
@@ -54,8 +54,17 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "    {\"userid\":\"biz001\",\"custcode\":\"A004\",\"custphone\":\"01022220001\",\"useyn\":\"D\"}"+ //삭제일 경우만
         "  ]" + 
         "}";
-    
-        List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer);
+        //거래^정산 내역조회
+        String jsonRetrieve = "{" +
+        "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
+        "  \"reqid\":\""+getRequestApiTime()+"\"," +
+        "  \"startdt\":\"20210315\"," + //조회 시작일
+        "  \"enddt\":\"20210315\"," + //조회 종료일
+        "  \"oid\":\"\"," + //주문번호
+        "  \"tid\":\"\"}"+ + //거래번호
+        "  ]" + 
+        "}";
+        List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve);
     
         String encryptData = new AES256Util(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
         System.out.println("[REQUEST] data="+encryptData);
