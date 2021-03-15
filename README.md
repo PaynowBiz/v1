@@ -16,7 +16,8 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
 * `userpw` 최초 호출시만 저장. 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 * `servicecode in (payments, settlements)` 인 경우 제약조건 : ① 1회 조회시 180일 이상 조회 불가 , ② 1회 조회시 1만건 이하만 가능
-<br/><br/>
+<br>
+
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -41,7 +42,8 @@ sample json code
   ]
 }
 ```
-<br/><br/>
+<br>
+
 ## 2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -71,7 +73,8 @@ sample data json code
   ]
 }
 ```
-<br/><br/>
+<br>
+
 ## 3. 거래(servicecode = payments) / 정산(servicecode = settlements) 내역 조회
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -89,7 +92,8 @@ sample json code
   "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
 }
 ```
-<br/><br/>
+<br>
+
 ## 4. 거래(servicecode = payments) RESPONSE 설명
 |Entity|Description
 |-----|-----|
@@ -117,7 +121,8 @@ sample json code
 |`reserved3`|예약필드3|
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
-<br/><br/>
+<br>
+
 ## 5. 정산(servicecode = settlements) RESPONSE 설명
 |Entity|Description
 |-----|-----|
@@ -143,6 +148,7 @@ sample json code
 |`custname`|고객(거래처)명|
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
+
 ## 5-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
 |-----|-----|-----|
@@ -154,7 +160,8 @@ sample json code
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
-<br/><br/>
+<br/>
+
 ## 6. RESPONSE SAMPLE
 ```json
 sample result json code
