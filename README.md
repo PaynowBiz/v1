@@ -12,7 +12,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
  * URL인코딩(UTF-8)
 <br/><br/>
 ## ※ 주의사항 ※
-* `app2appyn` Y로 할 경우 영업사원ID에 initialname 이 붙으므로, 가맹점에서 연동방식을 정확히 확인 후 넘겨야 합니다.
+* `app2appyn` servicecode = member, customer 인 경우만 해당함. Y로 할 경우 영업사원ID에 initialname 이 붙으므로, 가맹점에서 연동방식을 정확히 확인 후 넘겨야 합니다.
 * `userpw` 최초 호출시만 저장. 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 <br/><br/>
@@ -71,13 +71,29 @@ sample data json code
 }
 ```
 <br/><br/>
- 
+## 3. 거래(servicecode = payments) / 정산(servicecode = settlements) 내역 조회
+|Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16||인증키|
+|`reqid`|필수|13|숫자|yyyyMMddHHmmssSSS|
+|`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
+|`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
+|`oid`|선택|11|영문,숫자|주문번호|
+|`tid`|선택|100|영문,숫자|거래번호|
+```json
+sample json code
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
+  "startdt":"20210101", "enddt":"20210131",
+  "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+}
+```
+<br/><br/>
 ## RESPONSE SAMPLE
 ```json
 sample result json code
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
-
 result.status|Description
 :-----:|-----|
 200|전체성공
