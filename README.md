@@ -109,6 +109,7 @@ result.status|Description
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
+<br>
 
 ## 5. 거래(servicecode = payments) RESPONSE 설명
 |Entity|Description
