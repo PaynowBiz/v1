@@ -126,7 +126,8 @@ sample json code
 |`vat`|부가세|
 |`authnum`|승인번호|
 |`servicename`|서비스명(카드,현금)|
-|`status`|매입상태(카드:매입,매입취소 ^ 현금:결제,취소)|
+|`purchasecode`|매입상태코드|
+|`purchasename`|매입상태명|
 |`oid`|주문번호|
 |`tid`|거래번호|
 |`regdate`|등록일(YYYY-MM-DD)|
