@@ -145,17 +145,18 @@ sample json code
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
 <br/>
+
 ## 5-1. 정산 매입상태 설명
-|servicename|purchasecode|purchasename
+|servicename|purchasecode|purchasename|
 |-----|-----|-----|
-|카드|`CA01`|매입|
-|카드|`CA02`|매입취소|
-|카드|`CA03`|매입반송|
-|카드|`CA04`|매입보류|
-|카드|`CA06`|매입취소반송|
-|카드|`CA11`|부분취소|
-|현금|`200`|결제|
-|현금|`300`|취소|
+|카드|CA01|매입|
+|카드|CA02|매입취소|
+|카드|CA03|매입반송|
+|카드|CA04|매입보류|
+|카드|CA06|매입취소반송|
+|카드|CA11|부분취소|
+|현금|200|결제|
+|현금|300|취소|
 
 ## 6. RESPONSE SAMPLE
 ```json
