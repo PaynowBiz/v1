@@ -116,9 +116,34 @@ sample json code
 |`reserved3`|예약필드3|
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
-   
+<br/>
 
-## RESPONSE SAMPLE
+## 5. 정산(servicecode = settlements) RESPONSE 설명
+|Entity|Description
+|-----|-----|
+|`amount`|매입금액|
+|`vat`|부가세|
+|`authnum`|승인번호|
+|`servicename`|서비스명(카드,현금)|
+|`status`|매입상태(매입,매입취소,결제)|
+|`oid`|주문번호|
+|`tid`|거래번호|
+|`regdate`|등록일(YYYY-MM-DD)|
+|`adjustdate`|매출일(YYYY-MM-DD)|
+|`paydate`|결제일(YYYY-MM-DD)|
+|`plandate`|지급일(YYYY-MM-DD)|
+|`reqdate`|매입/취소 요청일(YYYY-MM-DD)|
+|`subservice`|카드할부(이자/무이자)|
+|`installment`|카드할부개월수|
+|`productinfo`|상품명|
+|`cardflag`|카드구분(신용,체크)|
+|`custcode`|고객(거래처)코드|
+|`custname`|고객(거래처)명|
+|`productinfo`|상품명|
+|`mntype`|등급(일반,중소,영세)|
+<br/>
+
+## 6. RESPONSE SAMPLE
 ```json
 sample result json code
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
