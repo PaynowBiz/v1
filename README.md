@@ -117,8 +117,7 @@ sample json code
 |`reserved3`|예약필드3|
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
-<br/>
-
+<br/><br/>
 ## 5. 정산(servicecode = settlements) RESPONSE 설명
 |Entity|Description
 |-----|-----|
@@ -144,8 +143,6 @@ sample json code
 |`custname`|고객(거래처)명|
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
-<br/>
-
 ## 5-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
 |-----|-----|-----|
@@ -157,7 +154,7 @@ sample json code
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
-
+<br/><br/>
 ## 6. RESPONSE SAMPLE
 ```json
 sample result json code
