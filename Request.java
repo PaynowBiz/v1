@@ -61,7 +61,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"startdt\":\"20210315\"," + //조회 시작일
         "  \"enddt\":\"20210315\"," + //조회 종료일
         "  \"oid\":\"\"," + //주문번호
-        "  \"tid\":\"\"}"+ + //거래번호
+        "  \"tid\":\"\"}" + //거래번호
         "  ]" + 
         "}";
         List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve);
