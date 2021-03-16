@@ -32,7 +32,7 @@ Entity|Required|Length|Restriction|Description
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
 
 ```json
-sample json code
+sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
@@ -94,10 +94,15 @@ sample json code
 ```
 <br>
 
-## 4. RESPONSE SAMPLE
+## 4-1. RESPONSE SAMPLE (MEMBER, CUSTOMER)
 ```json
 sample result json code
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
+```
+## 4-2. RESPONSE SAMPLE (PAYMENTS, SETLLEMENTS)
+```json
+sample result json code
+{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김민영","amount":"50000","authnum":"93714573","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
 ```
 result.status|Description
 :-----:|-----|
@@ -129,7 +134,7 @@ result.status|Description
 |`financename`|카드사명|
 |`installment`|카드할부개월수|
 |`productinfo`|상품명|
-|`cardmemo`|카드결제메모|
+|`memo`|메모|
 |`custcode`|고객(거래처)코드|
 |`custname`|고객(거래처)명|
 |`cashbill`|현금영수증발급여부(발급,미발급)|
@@ -151,7 +156,7 @@ result.status|Description
 |`purchasename`|[매입상태명](#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
 |`oid`|주문번호|
 |`tid`|거래번호|
-|`regdate`|등록일(YYYY-MM-DD)|
+|`regdate`|등록일(YYYY-MM-DD HH24:MI:SS)|
 |`paydate`|결제일(YYYY-MM-DD)|
 |`adjustdate`|카드매출일(YYYY-MM-DD)|
 |`plandate`|카드지급일(YYYY-MM-DD)|
