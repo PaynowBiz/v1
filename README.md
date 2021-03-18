@@ -146,7 +146,8 @@ result.status|Description
 <br>
 
 ## 6. 정산(servicecode = settlements) RESPONSE 설명
-> 결제일 다음날 8시30분 이후부터 조회가 가능합니다.
+>결제일 다음날 9시 이후부터 조회가 가능합니다.
+>
 |Entity|Description
 |-----|-----|
 |`amount`|매입금액|
