@@ -82,8 +82,8 @@ sample data json code
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`startdt`|필수|8|숫자|시작일[YYYYMMDD] <br/>▼조회기준▼<br/> 거래내역(**`paydate`** or **`canceldate`**), 정산내역(**`adjustdate`**)|
 |`enddt`|필수|8|숫자|종료일[YYYYMMDD] <br/>▼조회기준▼<br/> 거래내역(**`paydate`** or **`canceldate`**), 정산내역(**`adjustdate`**)|
-|`oid`|선택|11|영문,숫자|주문번호|
-|`tid`|선택|100|영문,숫자|거래번호|
+|`oid`|선택|18|영문,숫자|주문번호|
+|`tid`|선택|24|영문,숫자|거래번호|
 ```json
 sample json code
 {
