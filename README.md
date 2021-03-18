@@ -80,8 +80,8 @@ sample data json code
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
-|`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
+|`startdt`|필수|8|숫자|결제시작일[YYYYMMDD]|
+|`enddt`|필수|8|숫자|결제종료일[YYYYMMDD]|
 |`oid`|선택|11|영문,숫자|주문번호|
 |`tid`|선택|100|영문,숫자|거래번호|
 ```json
