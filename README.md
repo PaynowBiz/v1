@@ -128,8 +128,8 @@ result.status|Description
 |`tid`|거래번호|
 |`cardnum`|카드번호|
 |`authnum`|승인번호|
-|**`paydate`|결제일(YYYYMMDDHH24MISS)**|
-|**`canceldate`|취소일(YYYYMMDDHH24MISS)**|
+|**`paydate`**|**결제일(YYYYMMDDHH24MISS)**|
+|**`canceldate`**|**취소일(YYYYMMDDHH24MISS)**|
 |`financecode`|카드사코드(2자리)|
 |`financename`|카드사명|
 |`installment`|카드할부개월수|
@@ -160,7 +160,7 @@ result.status|Description
 |`tid`|거래번호|
 |`regdate`|등록일(YYYY-MM-DD HH24:MI:SS)|
 |`paydate`|결제일(YYYY-MM-DD)|
-|**`adjustdate`|카드매출일(YYYY-MM-DD)**|
+|**`adjustdate`**|**카드매출일(YYYY-MM-DD)**|
 |`plandate`|카드지급일(YYYY-MM-DD)|
 |`reqdate`|카드매입/취소 요청일(YYYY-MM-DD)|
 |`settlementcode`|카드결제기관|
