@@ -98,6 +98,9 @@ sample json code
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
+_**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인하시기 바랍니다.**_
+![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
+
 ## 4-2. RESPONSE SAMPLE (payments, setllements)
 ```json
 sample result
