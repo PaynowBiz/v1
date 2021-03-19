@@ -4,9 +4,9 @@
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCXeb+/vRejXLzQok+c6rYg3==
->mertid = PaynowBiz가입 가맹점ID, servicecode = 호출 할 서비스코드(member, customer, payments, settlements)
+>mertid = PaynowBiz가맹점ID, servicecode = 서비스코드(member, customer, payments, settlements), data = 아래내용 과 같습니다.
 
-Query String data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
+data = 요청할 정보를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
  * BASE64 인코딩
  * URL인코딩(UTF-8)
