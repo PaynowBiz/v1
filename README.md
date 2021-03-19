@@ -4,7 +4,7 @@
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}
->mertid = PaynowBiz가입 가맹점ID, servicecode = 호출 할 서비스코드
+>mertid = PaynowBiz가입 가맹점ID, servicecode = 호출 할 서비스코드(member, customer, payments, settlements)
 
 파라미터 data를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
@@ -94,12 +94,12 @@ sample json code
 ```
 <br>
 
-## 4-1. RESPONSE SAMPLE (MEMBER, CUSTOMER)
+## 4-1. RESPONSE SAMPLE (member, customer)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
-## 4-2. RESPONSE SAMPLE (PAYMENTS, SETLLEMENTS)
+## 4-2. RESPONSE SAMPLE (payments, setllements)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
