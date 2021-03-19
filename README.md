@@ -4,7 +4,7 @@
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCXeb+/vRejXLzQok+c6rYg3==
->**mertid**[PaynowBiz가맹점ID]  **servicecode**[member, customer, payments, settlements] **data**[아래내용 과 같습니다.]
+>**`mertid`**[PaynowBiz가맹점ID]  **`servicecode`**[member, customer, payments, settlements] **`data`**[아래내용 과 같습니다.]
 
 data = 요청할 정보를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
@@ -98,7 +98,7 @@ sample json code
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
-_**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인하시기 바랍니다.**_
+_**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 
 ## 4-2. RESPONSE SAMPLE (payments, setllements)
