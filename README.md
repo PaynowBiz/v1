@@ -79,10 +79,15 @@ sample data json code
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`startdt`|필수|8|숫자|시작일[YYYYMMDD] <br/>▼조회기준▼<br/> 거래내역(**`paydate`** or **`canceldate`**), 정산내역(**`adjustdate`**)<br/>① 1회 조회시 180일 이상 조회 불가 <br/>② 1회 조회시 1만건 이하만 가능|
-|`enddt`|필수|8|숫자|종료일[YYYYMMDD] <br/>▼조회기준▼<br/> 거래내역(**`paydate`** or **`canceldate`**), 정산내역(**`adjustdate`**)<br/>① 1회 조회시 180일 이상 조회 불가 <br/>② 1회 조회시 1만건 이하만 가능|
+|`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
+|`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
 |`oid`|선택|18|영문,숫자|주문번호|
 |`tid`|선택|24|영문,숫자|거래번호|
+
+▶ _**`startdt`** ~ **`enddt`** 의 조회기준 은 아래와 같습니다._<br>
+▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
+▶ 정산내역조회 = **`adjustdate`**<br>
+  ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
 ```json
 sample json code
 {
