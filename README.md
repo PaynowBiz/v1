@@ -139,7 +139,7 @@ result.status|Description
 |`memo`|메모|
 |`custcode`|고객(거래처)코드|
 |`custname`|고객(거래처)명|
-|`cashbill`|현금영수증발급여부(발급,미발급)|
+|`cashbill`|현금영수증발급여부(발급,발급취소,미발급)|
 |`reserved1`|예약필드1|
 |`reserved2`|예약필드2|
 |`reserved3`|예약필드3|
