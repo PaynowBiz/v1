@@ -5,7 +5,7 @@ servicecode 는 다음과 같습니다.
  3) payments : 거래내역 조회
  4) settlements : 정산내역 조회
 
-* [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do)
+* [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
 
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
 
