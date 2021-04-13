@@ -7,7 +7,7 @@ servicecode 는 다음과 같습니다.
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do)
 
-* [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
+* [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
 
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCX6rYg3==
 >**`mertid`**[PaynowBiz가맹점ID]  **`servicecode`**[member, customer, payments, settlements] **`data`**[아래 내용 확인]
