@@ -150,6 +150,7 @@ result.status|Description
 |`reserved3`|예약필드3|
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
+|`medictype`|의약품구분(일반,전문)|
 <br>
 
 ## 6. 정산(servicecode = settlements) RESPONSE 설명
@@ -179,6 +180,7 @@ result.status|Description
 |`custname`|고객(거래처)명|
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
+|`medictype`|의약품구분(일반,전문)|
 
 ## 6-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
