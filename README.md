@@ -1,4 +1,10 @@
 # PaynowBiz API
+servicecode 는 다음과 같습니다. 
+ 1) memeber : 가맹점(상점) 영업사원 등록 / 수정
+ 2) customer : 고객(거래처) 등록 /수정 / 삭제
+ 3) payments : 거래내역 조회
+ 4) settlements : 정산내역 조회
+
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do)
 
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 개발하면 됩니다.
