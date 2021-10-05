@@ -12,7 +12,7 @@
 [6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
 [6-4. 결제취소](#6-4-결제취소servicecode--cancel) <br>
 [7. 응답](#7-응답) <br>
-[7-1. status](7-1-응답-status-설명) <br>
+[7-1. status](#7-1-응답-status-설명) <br>
 [7-2. member, customer](#7-2-응답-샘플-member-customer) <br>
 [7-3. payments, setllements](#7-3-응답-샘플-payments-setllements) <br>
 [7-4. cancel](#7-4-응답-sample-cancel) <br>
