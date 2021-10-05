@@ -1,25 +1,8 @@
 # 페이나우비즈 v1 API 연동 규격서
 
-목차
-[1. 개요](#1.-개요)
-[2. URL](#2.-URL정보)
-[3. 서비스코드](#3.-serviecode)
-[4. 데이타](#4.-data)
-[5. 주의사항](#5.-주의사항)
-[6. REQUEST](#6.-REQUEST)
-[6-1. 영업사원 등록/수정](#6-1.-영업사원-등록/수정(servicecode-=-member))
-[6-2. 고객(거래처) 등록/수정/삭제](#6-2.-고객(거래처)-등록/수정/삭제(servicecode-=-customer))
-[6-3. 거래/정산 내역 조회](#6-3.-거래(servicecode-=-payments)-/-정산(servicecode-=-settlements)-내역-조회)
-[6-4. 결제취소](#6-4.-결제취소(servicecode-=-cancel))
-[7. RESPONSE](#7.-RESPONSE)
-[7-1. status](7-1.-RESPONSE-status-설명)
-[7-2. member, customer](#7-2.-RESPONSE-SAMPLE-(member,-customer))
-[7-3. payments, setllements](#7-3.-RESPONSE-SAMPLE-(payments,-setllements))
-[7-4. cancel](#7-4.-RESPONSE-SAMPLE-(cancel))
-[7-4-1. 결제취소 응답코드 설명](#7-4-1.-결제-취소-코드-설명)
-[7-5. 거래내역조회 설명](#7-5.-거래내역조회(servicecode-=-payments)-RESPONSE-설명)
-[7-6. 정산내역조회 설명](#7-6.-정산(servicecode-=-settlements)-RESPONSE-설명)
-[7-6-1. 정산 매입상태 설명](#7-6-1.-정산-매입상태-설명)
+목차<br>
+[1. 개요](##1.-개요)<br>
+
  
 ## 1. 개요
  PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
