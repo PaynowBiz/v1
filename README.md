@@ -137,6 +137,7 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card|결제수단|
 |`oid`|필수|18|영문,숫자|주문번호|
 |`tid`|필수|24|영문,숫자|거래번호|
+
 <br><br>
 ----------------------------------------------------------------------------------------
 
@@ -152,6 +153,7 @@ result.status|Description
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
+
 <br><br>
 ## 7-2. 응답 SAMPLE (member, customer)
 ```json
@@ -177,6 +179,7 @@ sample result
 :-----:|-----|
 0000|취소성공
 0601|이미 취소된 거래입니다
+
 <br><br>
 ## 7-5. 거래내역조회(servicecode = payments) 응답 설명
 |Entity|Description
