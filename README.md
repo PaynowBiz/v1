@@ -138,7 +138,7 @@ Entity|Required|Length|Restriction|Description
 |`oid`|필수|18|영문,숫자|주문번호|
 |`tid`|필수|24|영문,숫자|거래번호|
 
-<br><br>
+<br>
 ----------------------------------------------------------------------------------------
 
 ## 7. 응답
@@ -154,10 +154,9 @@ result.status|Description
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
 
-<br><br>
+<br>
 ## 7-2. 응답 SAMPLE (member, customer)
 ```json
-sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
@@ -165,13 +164,11 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 <br><br>
 ## 7-3. 응답 SAMPLE (payments, setllements)
 ```json
-sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
 ```
 <br><br>
 ## 7-4. 응답 SAMPLE (cancel)
 ```json
-sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancel","data":"","result":{"msg":"취소성공","code":"0000","oid":"biz210909153606587","tid":"bizte2021090915360751248"},"success":true}}
 ```
 ## 7-4-1. 결제 취소 코드 설명
@@ -180,7 +177,7 @@ sample result
 0000|취소성공
 0601|이미 취소된 거래입니다
 
-<br><br>
+<br>
 ## 7-5. 거래내역조회(servicecode = payments) 응답 설명
 |Entity|Description
 |-----|-----|
