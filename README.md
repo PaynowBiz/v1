@@ -129,7 +129,7 @@ sample data json code
 ▶ 정산내역조회 = **`adjustdate`**<br>
 ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
 ```json
-sample json code
+sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
   "startdt":"20210101", "enddt":"20210131",
@@ -146,6 +146,13 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card|결제수단|
 |`oid`|필수|18|영문,숫자|주문번호|
 |`tid`|필수|24|영문,숫자|거래번호|
+```json
+sample data json code
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
+  "type":"card", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+}
+```
 <br>
 
 ## 7. 응답정보
