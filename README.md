@@ -233,6 +233,7 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 
 ## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
+>
 |Entity|Description
 |-----|-----|
 |`mgrcode`|담당자코드|
