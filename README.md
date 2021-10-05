@@ -204,6 +204,7 @@ sample result
 |-----|-----|
 |`userid`|영업사원ID|
 |`usernm`|영업사원명|
+|`mgrcode`|담당자코드|
 |`amount`|결제금액|
 |`servicename`|서비스명(카드,현금)|
 |`status`|결제상태(승인성공,취소,취소예약중)|
@@ -231,9 +232,9 @@ sample result
 
 ## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
->
 |Entity|Description
 |-----|-----|
+|`mgrcode`|담당자코드|
 |`amount`|매입금액|
 |`vat`|부가세|
 |`authnum`|승인번호|
