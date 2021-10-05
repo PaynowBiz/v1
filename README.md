@@ -10,15 +10,15 @@
 [6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
 [6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제servicecode--customer) <br>
 [6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
-[6-4. 결제취소](#6-4-결제취소(servicecode-=-cancel)) <br>
+[6-4. 결제취소](#6-4-결제취소servicecode--cancel) <br>
 [7. 응답](#7-응답) <br>
 [7-1. status](7-1-응답-status-설명) <br>
-[7-2. member, customer](#7-2-응답-샘플-(member,-customer)) <br>
-[7-3. payments, setllements](#7-3-응답-샘플-(payments,-setllements)) <br>
-[7-4. cancel](#7-4-응답-sample-(cancel)) <br>
+[7-2. member, customer](#7-2-응답-샘플-member-customer) <br>
+[7-3. payments, setllements](#7-3-응답-샘플-payments-setllements) <br>
+[7-4. cancel](#7-4-응답-sample-cancel) <br>
 [7-4-1. 결제취소 응답코드 설명](#7-4-1-결제-취소-코드-설명) <br>
-[7-5. 거래내역조회 설명](#7-5-거래내역조회(servicecode-=-payments)-응답-설명)<br>
-[7-6. 정산내역조회 설명](#7-6-정산(servicecode-=-settlements)-응답-설명)<br>
+[7-5. 거래내역조회 설명](#7-5-거래내역조회servicecode-=-payments-응답-설명)<br>
+[7-6. 정산내역조회 설명](#7-6-정산servicecode-=-settlements-응답-설명)<br>
 [7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명)<br>
  
 ## 1. 개요
