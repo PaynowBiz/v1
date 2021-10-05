@@ -9,7 +9,7 @@
 [6. 요청](#6-요청) <br>
 [6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
 [6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제servicecode--customer) <br>
-[6-3. 거래/정산 내역 조회](#6-3-거래servicecode-=-payments--정산servicecode--settlements-내역-조회) <br>
+[6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
 [6-4. 결제취소](#6-4-결제취소(servicecode-=-cancel)) <br>
 [7. 응답](#7-응답) <br>
 [7-1. status](7-1-응답-status-설명) <br>
