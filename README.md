@@ -1,8 +1,25 @@
 # 페이나우비즈 v1 API 연동 규격서
 
 목차<br>
-[1. 개요](#1-개요)<br>
-
+[1. 개요](#1-개요) <br>
+[2. URL](#2-url정보) <br>
+[3. 서비스코드](#3-serviecode) <br>
+[4. 데이타](#4-data) <br>
+[5. 주의사항](#5-주의사항) <br>
+[6. 요청](#6-요청) <br>
+[6-1. 영업사원 등록/수정](#6-1-영업사원-등록/수정(servicecode-=-member)) <br>
+[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객(거래처)-등록/수정/삭제(servicecode-=-customer)) <br>
+[6-3. 거래/정산 내역 조회](#6-3-거래(servicecode-=-payments)-/-정산(servicecode-=-settlements)-내역-조회) <br>
+[6-4. 결제취소](#6-4-결제취소(servicecode-=-cancel)) <br>
+[7. 응답](#7-응답) <br>
+[7-1. status](7-1-응답-status-설명) <br>
+[7-2. member, customer](#7-2-응답-샘플-(member,-customer)) <br>
+[7-3. payments, setllements](#7-3-응답-샘플-(payments,-setllements)) <br>
+[7-4. cancel](#7-4-응답-sample-(cancel)) <br>
+[7-4-1. 결제취소 응답코드 설명](#7-4-1-결제-취소-코드-설명) <br>
+[7-5. 거래내역조회 설명](#7-5-거래내역조회(servicecode-=-payments)-응답-설명)<br>
+[7-6. 정산내역조회 설명](#7-6-정산(servicecode-=-settlements)-응답-설명)<br>
+[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명)<br>
  
 ## 1. 개요
  PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
@@ -33,7 +50,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 <br><br>
 ----------------------------------------------------------------------------------------
-## 6. REQUEST
+## 6. 요청
 ## 6-1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -120,11 +137,11 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card|결제수단|
 |`oid`|필수|18|영문,숫자|주문번호|
 |`tid`|필수|24|영문,숫자|거래번호|
-
+<br><br>
 ----------------------------------------------------------------------------------------
 
-## 7. RESPONSE
-## 7-1. RESPONSE status 설명
+## 7. 응답
+## 7-1. 응답 status 설명
 result.status|Description
 :-----:|-----|
 200|전체성공
@@ -136,8 +153,7 @@ result.status|Description
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
 <br><br>
-
-## 7-2. RESPONSE SAMPLE (member, customer)
+## 7-2. 응답 SAMPLE (member, customer)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
@@ -145,23 +161,24 @@ sample result
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 <br><br>
-## 7-3. RESPONSE SAMPLE (payments, setllements)
+## 7-3. 응답 SAMPLE (payments, setllements)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
 ```
-## 7-4. RESPONSE SAMPLE (cancel)
+<br><br>
+## 7-4. 응답 SAMPLE (cancel)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancel","data":"","result":{"msg":"취소성공","code":"0000","oid":"biz210909153606587","tid":"bizte2021090915360751248"},"success":true}}
 ```
 ## 7-4-1. 결제 취소 코드 설명
 |code|msg|
-|-----|-----|
-|0000|취소성공|
-|0601|이미 취소된 거래입니다.|
+:-----:|-----|
+0000|취소성공
+0601|이미 취소된 거래입니다
 <br><br>
-## 7-5. 거래내역조회(servicecode = payments) RESPONSE 설명
+## 7-5. 거래내역조회(servicecode = payments) 응답 설명
 |Entity|Description
 |-----|-----|
 |`userid`|영업사원ID|
@@ -190,7 +207,7 @@ sample result
 |`reserved5`|예약필드5|
 |`medictype`|의약품구분(일반,전문)|
 <br><br>
-## 7-6. 정산내역조회(servicecode = settlements) RESPONSE 설명
+## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Description
@@ -199,8 +216,8 @@ sample result
 |`vat`|부가세|
 |`authnum`|승인번호|
 |`servicename`|서비스명(카드,현금)|
-|`purchasecode`|[매입상태코드](#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`purchasename`|[매입상태명](#6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasecode`|[매입상태코드](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasename`|[매입상태명](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
 |`oid`|주문번호|
 |`tid`|거래번호|
 |`regdate`|등록일(YYYY-MM-DD HH24:MI:SS)|
