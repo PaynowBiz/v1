@@ -119,7 +119,7 @@ sample data json code
 ▶ _**`startdt`** ~ **`enddt`** 의 조회기준 은 아래와 같습니다._<br>
 ▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
 ▶ 정산내역조회 = **`adjustdate`**<br>
-  ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
+▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
 ```json
 sample json code
 {
