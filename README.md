@@ -148,7 +148,7 @@ Entity|Required|Length|Restriction|Description
 |`tid`|필수|24|영문,숫자|거래번호|
 <br>
 
-## 7. 응답
+## 7. 응답정보
 <br>
 
 ## 7-1. 응답 status
