@@ -206,7 +206,6 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |-----|-----|
 |`userid`|영업사원ID|
 |`usernm`|영업사원명|
-|`mgrcode`|담당자코드|
 |`amount`|결제금액|
 |`servicename`|서비스명(카드,현금)|
 |`status`|결제상태(승인성공,취소,취소예약중)|
@@ -221,8 +220,9 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |`installment`|카드할부개월수|
 |`productinfo`|상품명|
 |`memo`|메모|
-|`custcode`|고객(거래처)코드|
-|`custname`|고객(거래처)명|
+|`mgrcode`|담당자코드(스마트팜상점)|
+|`custcode`|고객(거래처)코드(스마트팜상점)|
+|`custname`|고객(거래처)명(스마트팜상점)|
 |`cashbill`|현금영수증발급여부(발급,발급취소,미발급)|
 |`reserved1`|예약필드1|
 |`reserved2`|예약필드2|
@@ -237,7 +237,6 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 >
 |Entity|Description
 |-----|-----|
-|`mgrcode`|담당자코드|
 |`amount`|매입금액|
 |`vat`|부가세|
 |`authnum`|승인번호|
@@ -256,8 +255,9 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |`installment`|카드할부개월수|
 |`cardflag`|카드구분(신용,체크)|
 |`productinfo`|상품명|
-|`custcode`|고객(거래처)코드|
-|`custname`|고객(거래처)명|
+|`mgrcode`|담당자코드(스마트팜상점)|
+|`custcode`|고객(거래처)코드(스마트팜상점)|
+|`custname`|고객(거래처)명(스마트팜상점)|
 |`productinfo`|상품명|
 |`mntype`|등급(일반,중소,영세)|
 |`medictype`|의약품구분(일반,전문)|
