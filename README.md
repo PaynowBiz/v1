@@ -4,6 +4,7 @@ servicecode 는 다음과 같습니다.
  2) customer : 고객(거래처) 등록 /수정 / 삭제
  3) payments : 거래내역 조회
  4) settlements : 정산내역 조회
+ 5) cancel : 결제취소
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
 
@@ -23,6 +24,8 @@ data = 요청할 정보를 json으로 만든 후 AES암호화하여 POST방식�
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 <br>
 
+----------------------------------------------------------------------------------------
+## >>> REQUEST <<<
 ## 1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -104,7 +107,19 @@ sample json code
 ```
 <br>
 
-## 4-1. RESPONSE SAMPLE (member, customer)
+## 4. 결제취소(servicecode = cancel)
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`type`|필수|4|card|결제수단|
+|`oid`|필수|18|영문,숫자|주문번호|
+|`tid`|필수|24|영문,숫자|거래번호|
+
+----------------------------------------------------------------------------------------
+
+## >>> RESPONSE <<<
+## 11-1. RESPONSE SAMPLE (member, customer)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
@@ -112,7 +127,7 @@ sample result
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 
-## 4-2. RESPONSE SAMPLE (payments, setllements)
+## 11-2. RESPONSE SAMPLE (payments, setllements)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
@@ -129,7 +144,7 @@ result.status|Description
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
 <br>
 
-## 5. 거래(servicecode = payments) RESPONSE 설명
+## 12. 거래(servicecode = payments) RESPONSE 설명
 |Entity|Description
 |-----|-----|
 |`userid`|영업사원ID|
@@ -159,7 +174,7 @@ result.status|Description
 |`medictype`|의약품구분(일반,전문)|
 <br>
 
-## 6. 정산(servicecode = settlements) RESPONSE 설명
+## 13. 정산(servicecode = settlements) RESPONSE 설명
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Description
@@ -188,7 +203,7 @@ result.status|Description
 |`mntype`|등급(일반,중소,영세)|
 |`medictype`|의약품구분(일반,전문)|
 
-## 6-1. 정산 매입상태 설명
+## 13-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
 |-----|-----|-----|
 |카드|CA01|매입|
