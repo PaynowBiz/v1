@@ -6,20 +6,20 @@
 [3. 서비스코드](#3-servicecode) <br>
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
-[6. 요청 정보](#6-요청) <br>
+[6. 요청 정보](#6-요청정보) <br>
 　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
 　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제servicecode--customer) <br>
 　[6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
 　[6-4. 결제취소](#6-4-결제취소servicecode--cancel) <br>
-[7. 응답 정보](#7-응답) <br>
- [7-1. status](#7-1-응답-status) <br>
- [7-2. member, customer](#7-2-응답-member-customer) <br>
- [7-3. payments, setllements](#7-3-응답-payments-setllements) <br>
- [7-4. cancel](#7-4-응답-cancel) <br>
-  [7-4-1. 결제취소 응답코드 설명](#7-4-1-결제-취소-코드-설명) <br>
- [7-5. 거래내역조회 설명](#7-5-거래내역조회servicecode--payments-응답-설명) <br>
- [7-6. 정산내역조회 설명](#7-6-정산내역조회servicecode--settlements-응답-설명) <br>
-  [7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
+[7. 응답 정보](#7-응답정보) <br>
+　[7-1. status](#7-1-응답-status) <br>
+　[7-2. member, customer](#7-2-응답-member-customer) <br>
+　[7-3. payments, setllements](#7-3-응답-payments-setllements) <br>
+　[7-4. cancel](#7-4-응답-cancel) <br>
+　　[7-4-1. 결제취소 응답코드 설명](#7-4-1-결제-취소-코드-설명) <br>
+　[7-5. 거래내역조회 설명](#7-5-거래내역조회servicecode--payments-응답-설명) <br>
+　[7-6. 정산내역조회 설명](#7-6-정산내역조회servicecode--settlements-응답-설명) <br>
+　　[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
  
 ## 1. 개요
  PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
