@@ -7,7 +7,7 @@
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청](#6-요청) <br>
-[6-1. 영업사원 등록/수정](#6-1-영업사원-등록/수정(servicecode-=-member)) <br>
+[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
 [6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객(거래처)-등록/수정/삭제(servicecode-=-customer)) <br>
 [6-3. 거래/정산 내역 조회](#6-3-거래(servicecode-=-payments)-/-정산(servicecode-=-settlements)-내역-조회) <br>
 [6-4. 결제취소](#6-4-결제취소(servicecode-=-cancel)) <br>
