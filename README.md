@@ -1,17 +1,17 @@
 # 페이나우비즈 v1 API 연동 규격서
 
-목차<br>
-[1. 개요](#1-개요) <br>
-[2. URL](#2-url정보) <br>
+목차 <br>
+>[1. 개요](#1-개요) <br>
+[2. URL 정보](#2-url정보) <br>
 [3. 서비스코드](#3-servicecode) <br>
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
-[6. 요청](#6-요청) <br>
+[6. 요청 정보](#6-요청) <br>
 [6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
 [6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제servicecode--customer) <br>
 [6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
 [6-4. 결제취소](#6-4-결제취소servicecode--cancel) <br>
-[7. 응답](#7-응답) <br>
+[7. 응답 정보](#7-응답) <br>
 [7-1. status](#7-1-응답-status-설명) <br>
 [7-2. member, customer](#7-2-응답-샘플-member-customer) <br>
 [7-3. payments, setllements](#7-3-응답-샘플-payments-setllements) <br>
@@ -26,31 +26,37 @@
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
-<br><br>
+<br>
+
 ## 2. URL정보
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCX6rYg3==
 >**`mertid`**[PaynowBiz 가맹점(상점)ID]  **`servicecode`**[서비스코드] **`data`**[요청할 정보를 암호화 한 값]
-<br><br>
+<br>
+
 ## 3. servicecode
  1) [memeber](#6-1.-영업사원-등록/수정(servicecode-=-member)) : 가맹점(상점) 영업사원 등록 / 수정
  2) [customer](#6-2.-고객(거래처)-등록/수정/삭제(servicecode-=-customer)) : 고객(거래처) 등록 /수정 / 삭제
  3) [payments](#6-3.-거래(servicecode-=-payments)-/-정산(servicecode-=-settlements)-내역-조회) : 거래내역 조회
  4) [settlements](#6-3.-거래(servicecode-=-payments)-/-정산(servicecode-=-settlements)-내역-조회) : 정산내역 조회
  5) [cancel](#6-4.-결제취소(servicecode-=-cancel)) : 결제취소
-<br><br>
+<br>
+
 ## 4. data
 요청할 정보를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
  * BASE64 인코딩
  * URL인코딩(UTF-8)
-<br><br>
+<br>
+
 ## 5. 주의사항
 * `servicecode in (member, customer)` 인 경우만 해당하며, `app2appyn`를 Y로 할 경우 영업사원ID에 initialname 이 붙으므로, 가맹점에서 연동방식을 정확히 확인 후 넘겨야 합니다.
 * `servicecode in (member)` 인 경우만 해당하며, `userpw` 최초 호출시만 저장됩니다. 비밀번호 수정을 하려고 재요청시 수정이 되지 않습니다. 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBizAPP([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
 * `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
-<br><br>
-----------------------------------------------------------------------------------------
-## 6. 요청
+<br>
+
+## 6. 요청정보
+<br>
+
 ## 6-1. 영업사원 등록/수정(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -75,7 +81,8 @@ sample data json code
   ]
 }
 ```
-<br><br>
+<br>
+
 ## 6-2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -105,7 +112,8 @@ sample data json code
   ]
 }
 ```
-<br><br>
+<br>
+
 ## 6-3. 거래(servicecode = payments) / 정산(servicecode = settlements) 내역 조회
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -128,7 +136,8 @@ sample json code
   "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
 }
 ```
-<br><br>
+<br>
+
 ## 6-4. 결제취소(servicecode = cancel)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -137,11 +146,11 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card|결제수단|
 |`oid`|필수|18|영문,숫자|주문번호|
 |`tid`|필수|24|영문,숫자|거래번호|
-
 <br>
-----------------------------------------------------------------------------------------
 
 ## 7. 응답
+<br>
+
 ## 7-1. 응답 status 설명
 result.status|Description
 :-----:|-----|
@@ -153,8 +162,8 @@ result.status|Description
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
 999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
-
 <br>
+
 ## 7-2. 응답 SAMPLE (member, customer)
 ```json
 sample result
@@ -162,13 +171,15 @@ sample result
 ```
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
-<br><br>
+<br>
+
 ## 7-3. 응답 SAMPLE (payments, setllements)
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"biz210316143540327","userid":"bizbiz","paydate":"20210316143540","tid":"bizbi2021031614354150070","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}"
 ```
-<br><br>
+<br>
+
 ## 7-4. 응답 SAMPLE (cancel)
 ```json
 sample result
@@ -179,8 +190,8 @@ sample result
 :-----:|-----|
 0000|취소성공
 0601|이미 취소된 거래입니다
-
 <br>
+
 ## 7-5. 거래내역조회(servicecode = payments) 응답 설명
 |Entity|Description
 |-----|-----|
@@ -209,7 +220,8 @@ sample result
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
 |`medictype`|의약품구분(일반,전문)|
-<br><br>
+<br>
+
 ## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
 >
