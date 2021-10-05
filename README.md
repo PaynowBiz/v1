@@ -91,7 +91,7 @@ sample data json code
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
 |`list`|||| _아래 정보를 배열로 처리_|
-|`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID<br/> 맵핑 정보 없으면 가맹점ID{mertid}|
+|`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID|
 |`custcode` **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
 |`custphone` **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
 |`custname`|필수|100||고객(거래처)명|
