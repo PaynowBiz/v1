@@ -20,6 +20,7 @@
 　[7-5. 거래내역조회 설명](#7-5-거래내역조회servicecode--payments-응답-설명) <br>
 　[7-6. 정산내역조회 설명](#7-6-정산내역조회servicecode--settlements-응답-설명) <br>
 　　[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
+ [8. 문의하기](#8-정산내역조회servicecode--settlements-응답-설명) <br>
  
 ## 1. 개요
  PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
@@ -168,7 +169,7 @@ result.status|Description
 104|servicecode, certkey가 맞지 않을 경우
 405|mertid, certkey를 찾을수 없을 경우 또는 JSON 오류 
 802|reqid, app2appyn이 없을 경우
-999|시스템 오류가 있을 경우(고객센터 ☎1544-7772 문의)
+999|시스템 오류가 있을 경우
 <br>
 
 ## 7-2. 응답 (member, customer)
@@ -272,3 +273,7 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
+<br>
+
+## 8. 문의하기
+☎ 1544-7772
