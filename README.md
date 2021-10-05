@@ -221,16 +221,16 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |`installment`|카드할부개월수|
 |`productinfo`|상품명|
 |`memo`|메모|
-|`mgrcode`|담당자코드(스마트팜상점)|
-|`custcode`|고객(거래처)코드(스마트팜상점)|
-|`custname`|고객(거래처)명(스마트팜상점)|
 |`cashbill`|현금영수증발급여부(발급,발급취소,미발급)|
 |`reserved1`|예약필드1|
 |`reserved2`|예약필드2|
 |`reserved3`|예약필드3|
 |`reserved4`|예약필드4|
 |`reserved5`|예약필드5|
-|`medictype`|의약품구분(일반,전문)|
+|`mgrcode`|담당자코드(스마트팜상점)|
+|`custcode`|고객(거래처)코드(스마트팜상점)|
+|`custname`|고객(거래처)명(스마트팜상점)|
+|`medictype`|의약품구분(일반,전문)(스마트팜상점)|
 <br>
 
 ## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
@@ -256,12 +256,11 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |`installment`|카드할부개월수|
 |`cardflag`|카드구분(신용,체크)|
 |`productinfo`|상품명|
+|`mntype`|등급(일반,중소,영세)|
 |`mgrcode`|담당자코드(스마트팜상점)|
 |`custcode`|고객(거래처)코드(스마트팜상점)|
 |`custname`|고객(거래처)명(스마트팜상점)|
-|`productinfo`|상품명|
-|`mntype`|등급(일반,중소,영세)|
-|`medictype`|의약품구분(일반,전문)|
+|`medictype`|의약품구분(일반,전문)(스마트팜상점)|
 
 ## 7-6-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|
