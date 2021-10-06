@@ -57,8 +57,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 ## 6. 요청정보
 <br>
 
-## 6-1. 영업사원 등록/수정
-(servicecode = member)
+## 6-1. 영업사원 등록/수정 **`servicecode = memeber`**
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
