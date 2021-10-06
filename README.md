@@ -8,12 +8,12 @@
 [6. 요청 정보](#6-요청정보) <br>
 　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정-servicecode--member) <br>
 　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제-servicecode--customer) <br>
-　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecodein-payments-settlements) <br>
+　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecodein-member-customer) <br>
-　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecodein-payments-setllements) <br>
+　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode-inmember-customer) <br>
+　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
 　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답값-설명-servicecode--settlements)<br>
