@@ -12,7 +12,7 @@
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode--member--servicecode--customer) <br>
+　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode--member-servicecode--customer) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode--payments-servicecode--setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
