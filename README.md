@@ -12,17 +12,17 @@
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. member, customer](#7-2-응답-member-customer) <br>
-　[7-3. payments, setllements](#7-3-응답-payments-setllements) <br>
-　[7-4. cancel](#7-4-응답-cancel) <br>
-　　[7-4-1. 결제취소 응답코드 설명](#7-4-1-결제-취소-코드-설명) <br>
-　[7-5. 거래내역조회 설명](#7-5-거래내역조회servicecode--payments-응답-설명) <br>
-　[7-6. 정산내역조회 설명](#7-6-정산내역조회servicecode--settlements-응답-설명) <br>
+　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode--member--servicecode--customer) <br>
+　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode--payments--servicecode--setllements) <br>
+　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
+　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
+　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답값-설명-servicecode--settlements) <br>
 　　[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
- [8. 문의하기](#8-문의하기) <br>
+　[7-7. 결제취소 응답값 설명](#7-4-1-결제-취소-응답값-설명-servicecode--cancel) <br>
+[8. 문의하기](#8-문의하기) <br>
  
 ## 1. 개요
- PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
+ PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
@@ -172,7 +172,7 @@ result.status|Description
 999|시스템 오류가 있을 경우
 <br>
 
-## 7-2. 응답 (member, customer)
+## 7-2. 영업사원, 고객(거래처) `servicecode = member, servicecode = customer`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
@@ -181,29 +181,21 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 <br>
 
-## 7-3. 응답 (payments, setllements)
+## 7-3. 거래/정산 내역 조회 `servicecode = payments, servicecode = setllements`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"{PaynowBiz 주문번호}","userid":"bizbiz","paydate":"20210316143540","tid":"{TossPayments 거래번호}","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}
 ```
 <br>
 
-## 7-4. 응답 (cancel)
+## 7-4. 결제취소 `servicecode = cancel`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancel","data":"","result":{"msg":"취소성공","code":"0000","oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
 ```
-## 7-4-1. 결제 취소 코드 설명
-_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소성공입니다. 그 외의 코드는 msg를 확인 하시기 바랍니다.**_
-|code|msg|
-:-----:|-----|
-0000|취소성공
-0601|이미 취소된 거래입니다
-0602|승인 실패건은 취소할 수 없습니다
-0603|취소예약된 거래입니다
 <br>
 
-## 7-5. 거래내역조회(servicecode = payments) 응답 설명
+## 7-5. 거래내역조회 응답값 설명 `servicecode = payments`
 |Entity|Description
 |-----|-----|
 |`userid`|영업사원ID|
@@ -234,7 +226,7 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |`medictype`|의약품구분(일반,전문)(스마트팜상점)|
 <br>
 
-## 7-6. 정산내역조회(servicecode = settlements) 응답 설명
+## 7-6. 정산내역조회 응답 설명 `servicecode = settlements`
 >결제일 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Description
@@ -274,6 +266,16 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
+<br>
+
+## 7-7. 결제취소 응답값 설명 `servicecode = cancel`
+_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소성공입니다. 그 외의 코드는 msg를 확인 하시기 바랍니다.**_
+|code|msg|
+:-----:|-----|
+0000|취소성공
+0601|이미 취소된 거래입니다
+0602|승인 실패건은 취소할 수 없습니다
+0603|취소예약된 거래입니다
 <br>
 
 ## 8. 문의하기
