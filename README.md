@@ -8,12 +8,12 @@
 [6. 요청 정보](#6-요청정보) <br>
 　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정-servicecode--member) <br>
 　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제-servicecode--customer) <br>
-　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecode--payments--servicecode--settlements) <br>
+　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecodein-payments-settlements) <br>
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode--member-servicecode--customer) <br>
-　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode--payments-servicecode--setllements) <br>
+　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecodein-member-customer) <br>
+　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecodein-payments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
 　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답값-설명-servicecode--settlements)<br>
@@ -114,7 +114,7 @@ sample data json code
 ```
 <br>
 
-## 6-3. 거래/정산 내역 조회 `servicecode = payments / servicecode = settlements`
+## 6-3. 거래/정산 내역 조회 `servicecode in(payments, settlements)`
 
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -172,7 +172,7 @@ result.status|Description
 999|시스템 오류가 있을 경우
 <br>
 
-## 7-2. 영업사원, 고객(거래처) `servicecode = member, servicecode = customer`
+## 7-2. 영업사원, 고객(거래처) `servicecode in(member, customer)`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
@@ -181,7 +181,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 <br>
 
-## 7-3. 거래/정산 내역 조회 `servicecode = payments, servicecode = setllements`
+## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"{PaynowBiz 주문번호}","userid":"bizbiz","paydate":"20210316143540","tid":"{TossPayments 거래번호}","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}
