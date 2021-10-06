@@ -6,10 +6,10 @@
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
-　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정servicecode--member) <br>
-　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제servicecode--customer) <br>
-　[6-3. 거래/정산 내역 조회](#6-3-거래servicecode--payments--정산servicecode--settlements-내역-조회) <br>
-　[6-4. 결제취소](#6-4-결제취소servicecode--cancel) <br>
+　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정) <br>
+　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제) <br>
+　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회) <br>
+　[6-4. 결제취소](#6-4-결제취소) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
 　[7-2. member, customer](#7-2-응답-member-customer) <br>
@@ -57,7 +57,8 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 ## 6. 요청정보
 <br>
 
-## 6-1. 영업사원 등록/수정(servicecode = member)
+## 6-1. 영업사원 등록/수정
+(servicecode = member)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -83,7 +84,8 @@ sample data json code
 ```
 <br>
 
-## 6-2. 고객(거래처) 등록/수정/삭제(servicecode = customer)
+## 6-2. 고객(거래처) 등록/수정/삭제
+(servicecode = customer)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -114,7 +116,8 @@ sample data json code
 ```
 <br>
 
-## 6-3. 거래(servicecode = payments) / 정산(servicecode = settlements) 내역 조회
+## 6-3. 거래/정산 내역 조회
+(servicecode = payments / servicecode = settlements)
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,|인증키|
@@ -138,7 +141,8 @@ sample data json code
 ```
 <br>
 
-## 6-4. 결제취소(servicecode = cancel)
+## 6-4. 결제취소
+(servicecode = cancel)
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
