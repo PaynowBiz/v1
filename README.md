@@ -16,7 +16,7 @@
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode--payments-servicecode--setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
-　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답-설명-servicecode--settlements)<br>
+　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답값-설명-servicecode--settlements)<br>
 　　[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
 　[7-7. 결제취소 응답값 설명](#7-4-1-결제-취소-응답값-설명-servicecode--cancel) <br>
 [8. 문의하기](#8-문의하기) <br>
