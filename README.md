@@ -227,7 +227,7 @@ sample result
 <br>
 
 ## 7-6. 정산내역조회 응답값 설명 `servicecode = settlements`
->결제일 다음날 9시 이후부터 조회가 가능합니다.
+>결제일`paydate` 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Description
 |-----|-----|
