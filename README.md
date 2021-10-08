@@ -22,7 +22,7 @@
 [8. 문의하기](#8-문의하기) <br>
  
 ## 1. 개요
- PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
+ PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처(고객) 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
