@@ -36,8 +36,8 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 ## 3. servicecode
  1) [member](#6-1-영업사원-등록수정-servicecode--member) : 가맹점(상점) 영업사원 등록 / 수정
  2) [customer](#6-2-고객거래처-등록수정삭제-servicecode--customer) : 고객(거래처) 등록 /수정 / 삭제
- 3) [payments](#6-3-거래-servicecode--payments--정산-servicecode--settlements-내역-조회) : 거래내역 조회
- 4) [settlements](#6-3-거래-servicecode--payments--정산-servicecode--settlements-내역-조회) : 정산내역 조회
+ 3) [payments](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
+ 4) [settlements](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
  5) [cancel](#6-4-결제취소-servicecode--cancel) : 결제취소
 <br>
 
