@@ -15,15 +15,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class Request {
-/* 실행(IDX) 할 순서를 바꿔가면서 테스트를 진행한다. 
- *       ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소
- *       ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
+/* 순서(IDX)를 바꿔가면서 테스트를 진행한다. 
+ *      ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소
+ *      ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
 private final static int IDX = 2;
 private final static List<String> SERVICECODE = Arrays.asList("member", "customer","payments","settlements","cancel");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
-private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키(※ 절대 유출되면 안됩니다.)
-private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY(※ 절대 유출되면 안됩니다.)
+//※중요 : {certkey, apikey}는 안전한 곳에 보관하시기 바랍니다.
+private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키
+private final static String PAYNOWBIZ_APIKEY = "{apikey}";   //PaynowBiz에서 발급받은 APIKEY
 private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.com/2/v1/"; //호출URL
   
   public static void main(String[] args) {
