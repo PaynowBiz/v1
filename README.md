@@ -196,7 +196,7 @@ sample result
 <br>
 
 ## 7-5. 거래내역조회 응답값 설명 `servicecode = payments`
-|Entity|Description
+|Entity|Description|
 |-----|-----|
 |`userid`|영업사원ID|
 |`usernm`|영업사원명|
