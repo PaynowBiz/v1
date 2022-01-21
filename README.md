@@ -196,64 +196,66 @@ sample result
 <br>
 
 ## 7-5. 거래내역조회 응답값 설명 `servicecode = payments`
-|Entity|Description
-|-----|-----|
-|`userid`|영업사원ID|
-|`usernm`|영업사원명|
-|`amount`|결제금액|
-|`servicename`|서비스명(카드,현금)|
-|`status`|결제상태(승인성공,취소,취소예약중)|
-|`oid`|주문번호|
-|`tid`|거래번호|
-|`cardnum`|카드번호|
-|`authnum`|승인번호|
-|**`paydate`**|**결제일(YYYYMMDDHH24MISS)**|
-|**`canceldate`**|**취소일(YYYYMMDDHH24MISS)**|
-|`financecode`|카드사코드(2자리)|
-|`financename`|카드사명|
-|`installment`|카드할부개월수|
-|`productinfo`|상품명|
-|`memo`|메모|
-|`cashbill`|현금영수증발급여부(발급,발급취소,미발급)|
-|`reserved1`|예약필드1|
-|`reserved2`|예약필드2|
-|`reserved3`|예약필드3|
-|`reserved4`|예약필드4|
-|`reserved5`|예약필드5|
-|`mgrcode`|담당자코드(스마트팜상점)|
-|`custcode`|고객(거래처)코드(스마트팜상점)|
-|`custname`|고객(거래처)명(스마트팜상점)|
-|`medictype`|의약품구분(일반,전문)(스마트팜상점)|
+|Entity|Required|Description
+|-----|-----|-----|
+|`userid`|필수|영업사원ID|
+|`usernm`|필수|영업사원명|
+|`amount`|필수|결제금액|
+|`servicename`|필수|서비스명(카드,현금)|
+|`status`|필수|결제상태(승인성공,취소,취소예약중)|
+|`oid`|필수|주문번호|
+|`tid`|필수|거래번호|
+|`cardnum`|카드필수|카드번호|
+|`authnum`|필수|승인번호|
+|**`paydate`**|필수|**결제일(YYYYMMDDHH24MISS)**|
+|**`canceldate`**|취소필수|**취소일(YYYYMMDDHH24MISS)**|
+|`financecode`|카드필수|카드사코드(2자리)|
+|`financename`|카드필수|카드사명|
+|`installment`|카드필수|카드할부개월수|
+|`productinfo`|선택|상품명|
+|`memo`|선택|메모|
+|`cashbill`|현금필수|현금영수증발급여부(발급,발급취소,미발급)|
+|`reserved1`|선택|예약필드1|
+|`reserved2`|선택|예약필드2|
+|`reserved3`|선택|예약필드3|
+|`reserved4`|선택|예약필드4|
+|`reserved5`|선택|예약필드5|
+|`mgrcode`|부분필수|담당자코드(스마트팜상점)|
+|`custcode`|부분필수|고객(거래처)코드(스마트팜상점)|
+|`custname`|부분필수|고객(거래처)명(스마트팜상점)|
+|`medictype`|부분필수|의약품구분(일반,전문)(스마트팜상점)|
+|||_부분필수 : 스마트팜상정 일 경우에 한해서 필수_|
 <br>
 
 ## 7-6. 정산내역조회 응답값 설명 `servicecode = settlements`
 >결제일`paydate` 다음날 9시 이후부터 조회가 가능합니다.
 >
-|Entity|Description
-|-----|-----|
-|`amount`|매입금액|
-|`vat`|부가세|
-|`authnum`|승인번호|
-|`servicename`|서비스명(카드,현금)|
-|`purchasecode`|[매입상태코드](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`purchasename`|[매입상태명](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`oid`|주문번호|
-|`tid`|거래번호|
-|`regdate`|등록일(YYYY-MM-DD HH24:MI:SS)|
-|`paydate`|결제일(YYYY-MM-DD)|
-|**`adjustdate`**|**카드매출일(YYYY-MM-DD)**|
-|`plandate`|카드지급일(YYYY-MM-DD)|
-|`reqdate`|카드매입/취소 요청일(YYYY-MM-DD)|
-|`settlementcode`|카드결제기관|
-|`subservice`|카드할부(이자/무이자)|
-|`installment`|카드할부개월수|
-|`cardflag`|카드구분(신용,체크)|
-|`productinfo`|상품명|
-|`mntype`|등급(일반,중소,영세)|
-|`mgrcode`|담당자코드(스마트팜상점)|
-|`custcode`|고객(거래처)코드(스마트팜상점)|
-|`custname`|고객(거래처)명(스마트팜상점)|
-|`medictype`|의약품구분(일반,전문)(스마트팜상점)|
+|Entity|Required|Description
+|-----|-----|-----|
+|`amount`|필수|매입금액|
+|`vat`|필수|부가세|
+|`authnum`|필수|승인번호|
+|`servicename`|필수|서비스명(카드,현금)|
+|`purchasecode`|카드필수|[매입상태코드](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasename`|카드필수|[매입상태명](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`oid`|필수|주문번호|
+|`tid`|필수|거래번호|
+|`regdate`|필수|등록일(YYYY-MM-DD HH24:MI:SS)|
+|`paydate`|필수|결제일(YYYY-MM-DD)|
+|**`adjustdate`**|카드필수|**카드매출일(YYYY-MM-DD)**|
+|`plandate`|카드필수|카드지급일(YYYY-MM-DD)|
+|`reqdate`|카드필수|카드매입/취소 요청일(YYYY-MM-DD)|
+|`settlementcode`|카드필수|카드결제기관|
+|`subservice`|카드필수|카드할부(이자/무이자)|
+|`installment`|카드필수|카드할부개월수|
+|`cardflag`|카드필수|카드구분(신용,체크)|
+|`productinfo`|선택|상품명|
+|`mntype`|카드필수|등급(일반,중소,영세)|
+|`mgrcode`|부분필수|담당자코드(스마트팜상점)|
+|`custcode`|부분필수|고객(거래처)코드(스마트팜상점)|
+|`custname`|부분필수|고객(거래처)명(스마트팜상점)|
+|`medictype`|부분필수|의약품구분(일반,전문)(스마트팜상점)|
+|||_부분필수 : 스마트팜상정 일 경우에 한해서 필수_|
 
 ## 7-6-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|Description
