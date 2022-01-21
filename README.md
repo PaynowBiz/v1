@@ -202,12 +202,12 @@ sample result
 |`usernm`|필수|영업사원명|
 |`amount`|필수|결제금액|
 |`servicename`|필수|서비스명(카드,현금)|
-|`status`|필수|결제상태(승인성공,취소,취소예약중)|
+|`status`|필수|결제상태(승인성공,취소,취소예약중,결제)|
 |`oid`|필수|주문번호|
-|`tid`|필수|거래번호|
+|`tid`|카드필수|거래번호|
 |`cardnum`|카드필수|카드번호|
-|`authnum`|필수|승인번호|
-|**`paydate`**|필수|**결제일(YYYYMMDDHH24MISS)**|
+|`authnum`|카드필수,현금부분필수|승인번호|
+|**`paydate`**|카드필수,현금부분필수|**결제일(YYYYMMDDHH24MISS)**|
 |**`canceldate`**|취소필수|**취소일(YYYYMMDDHH24MISS)**|
 |`financecode`|카드필수|카드사코드(2자리)|
 |`financename`|카드필수|카드사명|
