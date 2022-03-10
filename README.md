@@ -212,6 +212,7 @@ sample result
 |`financecode`|카드필수|카드사코드(2자리)|
 |`financename`|카드필수|카드사명|
 |`installment`|카드필수|카드할부개월수|
+|`cardflag`|카드필수|카드구분(신용,체크,기프트)|
 |`productinfo`|선택|상품명|
 |`memo`|선택|메모|
 |`cashbill`|현금필수|현금영수증발급여부(발급,발급취소,미발급)|
@@ -248,7 +249,7 @@ sample result
 |`settlementcode`|카드필수|카드결제기관|
 |`subservice`|카드필수|카드할부(이자/무이자)|
 |`installment`|카드필수|카드할부개월수|
-|`cardflag`|카드필수|카드구분(신용,체크)|
+|`cardflag`|카드필수|카드구분(신용,체크,)|
 |`productinfo`|선택|상품명|
 |`mntype`|카드필수|등급(일반,중소,영세)|
 |`mgrcode`|부분선택|담당자코드(스마트팜상점)|
