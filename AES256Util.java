@@ -1,11 +1,9 @@
 import java.security.Key;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.lang.CharEncoding;
 
 public class AES256Util {
   private final Key keySpec;
@@ -17,7 +15,7 @@ public class AES256Util {
     * @exception 
     */
   public AES256Util(String key) throws Exception {
-    byte[] keyBytes = key.getBytes(CharEncoding.UTF_8);
+    byte[] keyBytes = key.getBytes("UTF-8");
     SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
 
     this.keySpec = keySpec;
@@ -33,8 +31,8 @@ public class AES256Util {
     Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
     c.init(Cipher.ENCRYPT_MODE, keySpec, new IvParameterSpec(ivBytes));
 
-    byte[] encrypted = c.doFinal(str.getBytes(CharEncoding.UTF_8));
-    String enStr = new String(Base64.encodeBase64(encrypted));
+    byte[] encrypted = c.doFinal(str.getBytes("UTF-8"));
+    String enStr = new String(Base64.getEncoder().encode(encrypted));
 
     return enStr;
   }
@@ -49,8 +47,8 @@ public class AES256Util {
     Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
     c.init(Cipher.DECRYPT_MODE, keySpec, new IvParameterSpec(ivBytes));
 
-    byte[] byteStr = Base64.decodeBase64(str.getBytes());
+    byte[] byteStr = Base64.getDecoder().decode(str.getBytes());
 
-    return new String(c.doFinal(byteStr), CharEncoding.UTF_8);	
+    return new String(c.doFinal(byteStr), "UTF-8");	
   }
 }
