@@ -77,7 +77,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         System.out.println("[REQUEST] data="+encryptData);
     
        //post request
-       String postParams = "data="+URLEncoder.encode(encryptData, CharEncoding.UTF_8);
+       String postParams = "data="+URLEncoder.encode(encryptData, "UTF-8");
        RequestUrl(postParams);
     } catch (Exception e) {
       e.printStackTrace();
