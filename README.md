@@ -167,7 +167,7 @@ Entity|Required|Length|Restriction|Description
 sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "type":"card", "oid":"{상점 주문번호}"
+  "type":"card", "shop_oid":"{상점 주문번호}"
 }
 ```
 <br>
