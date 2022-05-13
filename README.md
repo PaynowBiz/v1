@@ -156,7 +156,7 @@ sample data json code
 ```
 <br>
 
-## 6-5. 결제취소(결제유형:간편) `servicecode = cancelsimple`
+## 6-5. 결제취소(결제유형:간편) `servicecode = cancelSimple`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
