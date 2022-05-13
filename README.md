@@ -156,6 +156,22 @@ sample data json code
 ```
 <br>
 
+## 6-5. 결제취소(결제유형:간편) `servicecode = cancelsimple`
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`type`|필수|4|card|결제수단|
+|`shop_oid`|필수|64|영문,숫자|상점주문번호|
+```json
+sample data json code
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
+  "type":"card", "oid":"{상점 주문번호}"
+}
+```
+<br>
+
 ## 7. 응답정보
 <br>
 
