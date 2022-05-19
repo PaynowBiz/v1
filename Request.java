@@ -63,15 +63,15 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"tid\":\"\"}" + //거래번호
         "  ]" + 
         "}";
-      	//취소^취소(상점주문번호)
-	String jsonCancel = "{" +
-	"  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
-	"  \"reqid\":\""+getRequestApiTime()+"\"," +
-	"  \"type\":\"card\"," +
-	"  \"oid\":\"{PaynowBiz 주문번호}\"," +
-	"  \"tid\":\"{TossPayments 거래번호}\"," +		    		
-	"  \"shop_oid\":\"{상점에서 결제한 주문번호}\"" +		    		
-	"}";
+        //취소^취소(상점주문번호)
+        String jsonCancel = "{" +
+        "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
+        "  \"reqid\":\""+getRequestApiTime()+"\"," +
+        "  \"type\":\"card\"," +
+        "  \"oid\":\"{PaynowBiz 주문번호}\"," +
+        "  \"tid\":\"{TossPayments 거래번호}\"," +		    		
+        "  \"shop_oid\":\"{상점에서 결제한 주문번호}\"" +		    		
+        "}";
         List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
     
         String encryptData = new AES256Util(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
