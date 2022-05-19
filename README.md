@@ -1,44 +1,47 @@
 # 토스페이먼츠 페이나우비즈 v1 API 연동 규격서
 
->[1. 개요](#1-개요) <br>
+[1. 개요](#1-개요) <br>
 [2. URL 정보](#2-url정보) <br>
 [3. 서비스코드](#3-servicecode) <br>
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
 　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정-servicecode--member) <br>
-　[6-2. 고객(거래처) 등록/수정/삭제](#6-2-고객거래처-등록수정삭제-servicecode--customer) <br>
+　[6-2. 거래처 등록/수정/삭제](#6-2-거래처-등록수정삭제-servicecode--customer) <br>
 　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
+　[6-5. 결제취소(상점주문번호)](#6-5-결제취소상점주문번호-servicecode--cancelshopoid) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 영업사원, 고객(거래처)](#7-2-영업사원-고객거래처-servicecode-inmember-customer) <br>
+　[7-2. 영업사원, 거래처](#7-2-영업사원-거래처-servicecode-inmember-customer) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
-　[7-5. 거래내역조회 응답값 설명](#7-5-거래내역조회-응답값-설명-servicecode--payments) <br>
-　[7-6. 정산내역조회 응답값 설명](#7-6-정산내역조회-응답값-설명-servicecode--settlements)<br>
-　　[7-6-1. 정산 매입상태 설명](#7-6-1-정산-매입상태-설명) <br>
-　[7-7. 결제취소 응답값 설명](#7-7-결제취소-응답값-설명-servicecode--cancel) <br>
+　[7-5. 결제취소 상점주문번호)](#7-5-결제취소상점주문번호-servicecode--cancelshopoid) <br>
+　[7-6. 거래내역조회 응답값 설명](#7-6-거래내역조회-응답값-설명-servicecode--payments) <br>
+　[7-7. 정산내역조회 응답값 설명](#7-7-정산내역조회-응답값-설명-servicecode--settlements)<br>
+　[7-7-1. 정산 매입상태 설명](#7-7-1-정산-매입상태-설명) <br>
+　[7-8. 결제취소 응답값 설명](#7-8-결제취소-응답값-설명-servicecode-incancel-cancelshopoid) <br>
 [8. 문의하기](#8-문의하기) <br>
  
 ## 1. 개요
- PaynowBiz를 이용하는 가맹점(상점)에서 영업사원과 거래처(고객) 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
+ PaynowBiz를 이용하는 가맹점(상점) 이하, 상점에서 영업사원과 고객(거래처) 이하, 거래처 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
 
-* [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트를 해 볼수 있습니다.
+* [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트로 발급된 상점ID(bizbiz)로 테스트해 볼수 있습니다.
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
 <br>
 
 ## 2. URL정보
 https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCX6rYg3==
->**`mertid`**[PaynowBiz 가맹점(상점)ID]  **`servicecode`**[서비스코드] **`data`**[요청할 정보를 암호화 한 값]
+>**`mertid`**[PaynowBiz 상점ID]  **`servicecode`**[서비스코드] **`data`**[요청할 정보를 암호화 한 값]
 <br>
 
 ## 3. servicecode
- 1) [member](#6-1-영업사원-등록수정-servicecode--member) : 가맹점(상점) 영업사원 등록 / 수정
- 2) [customer](#6-2-고객거래처-등록수정삭제-servicecode--customer) : 고객(거래처) 등록 /수정 / 삭제
+ 1) [member](#6-1-영업사원-등록수정-servicecode--member) : 상점 영업사원 등록 / 수정
+ 2) [customer](#6-2-거래처-등록수정삭제-servicecode--customer) : 거래처 등록 /수정 / 삭제
  3) [payments](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
  4) [settlements](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
  5) [cancel](#6-4-결제취소-servicecode--cancel) : 결제취소
+ 6) [cancelShopOid](#6-5-결제취소(상점주문번호)-servicecode--cancelShopOid) : 결제취소(상점주문번호)
 <br>
 
 ## 4. data
@@ -83,24 +86,24 @@ sample data json code
 ```
 <br>
 
-## 6-2. 고객(거래처) 등록/수정/삭제 `servicecode = customer`
+## 6-2. 거래처 등록/수정/삭제 `servicecode = customer`
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점 유무**|
 |`list`|||| _아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID|
-|`custcode` **[PK]**|필수|100|영문, 숫자|고객(거래처)코드|
-|`custphone` **[PK]**|필수|11|숫자(-제외)|고객(거래처)휴대폰번호|
-|`custname`|필수|100||고객(거래처)명|
+|`custcode` **[PK]**|필수|100|영문, 숫자|거래처 코드|
+|`custphone` **[PK]**|필수|11|숫자(-제외)|거래처 휴대폰번호|
+|`custname`|필수|100||거래처명|
 |`useyn`|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
-|`custaddress1`|필수|128||고객(거래처)주소1|
-|`custaddress2`|선택|128||고객(거래처)주소2|
-|`custzip`|선택|5|숫자|고객(거래처)우편번호|
-|`businessno`|선택|10|숫자(-제외)|고객(거래처)사업자번호|
-|`custfax`|선택|20|숫자(-제외)|고객(거래처)팩스번호|
-|`custemail`|선택|128|영어/숫자/특수문자|고객(거래처)이메일주소|
+|`custaddress1`|필수|128||거래처 주소1|
+|`custaddress2`|선택|128||거래처 주소2|
+|`custzip`|선택|5|숫자|거래처 우편번호|
+|`businessno`|선택|10|숫자(-제외)|거래처 사업자번호|
+|`custfax`|선택|20|숫자(-제외)|거래처 팩스번호|
+|`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 
 ```json
 sample data json code
@@ -115,7 +118,6 @@ sample data json code
 <br>
 
 ## 6-3. 거래/정산 내역 조회 `servicecode in(payments, settlements)`
-
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,|인증키|
@@ -145,13 +147,29 @@ Entity|Required|Length|Restriction|Description
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`type`|필수|4|card|결제수단|
-|`oid`|필수|18|영문,숫자|주문번호|
-|`tid`|필수|24|영문,숫자|거래번호|
+|`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
+|`tid`|필수|24|영문,숫자|TossPayments 거래번호|
 ```json
 sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
   "type":"card", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+}
+```
+<br>
+
+## 6-5. 결제취소(상점주문번호) `servicecode = cancelShopOid`
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`type`|필수|4|card|결제수단|
+|`shop_oid`|필수|64|영문,숫자|상점 주문번호|
+```json
+sample data json code
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
+  "type":"card", "shop_oid":"{상점에서 결제 요청한 주문번호}"
 }
 ```
 <br>
@@ -172,7 +190,7 @@ result.status|Description
 999|시스템 오류가 있을 경우
 <br>
 
-## 7-2. 영업사원, 고객(거래처) `servicecode in(member, customer)`
+## 7-2. 영업사원, 거래처 `servicecode in(member, customer)`
 ```json
 sample result
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
@@ -195,16 +213,23 @@ sample result
 ```
 <br>
 
-## 7-5. 거래내역조회 응답값 설명 `servicecode = payments`
+## 7-5. 결제취소(상점주문번호) `servicecode = cancelShopOid`
+```json
+sample result
+{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancelShopOid","data":"","result":{"msg":"취소성공","code":"0000","shop_oid":"{상점에서 결제 요청한 주문번호}"},"success":true}}
+```
+<br>
+
+## 7-6. 거래내역조회 응답값 설명 `servicecode = payments`
 |Entity|Required|Description
 |-----|-----|-----|
 |`userid`|필수|영업사원ID|
 |`usernm`|필수|영업사원명|
 |`amount`|필수|결제금액|
 |`servicename`|필수|서비스명(카드,현금)|
-|`status`|필수|결제상태(승인성공,취소,취소예약중,결제)|
-|`oid`|필수|주문번호|
-|`tid`|카드필수|거래번호|
+|`status`|필수|결제상태(카드[승인성공,취소,취소예약중], 현금[결제])|
+|`oid`|필수|PaynowBiz 주문번호|
+|`tid`|카드필수|TossPayments 거래번호|
 |`cardnum`|카드필수|카드번호|
 |`authnum`|카드필수,현금부분필수|승인번호|
 |**`paydate`**|카드필수,현금부분필수|**결제일(YYYYMMDDHH24MISS)**|
@@ -221,14 +246,14 @@ sample result
 |`reserved3`|선택|예약필드3|
 |`reserved4`|선택|예약필드4|
 |`reserved5`|선택|예약필드5|
-|`mgrcode`|부분필수|담당자코드(스마트팜상점)|
-|`custcode`|부분필수|고객(거래처)코드(스마트팜상점)|
-|`custname`|부분필수|고객(거래처)명(스마트팜상점)|
-|`medictype`|부분필수|의약품구분(일반,전문)(스마트팜상점)|
-|||_부분필수 : 스마트팜가맹점 일 경우에 한해서 필수_|
+|`mgrcode`|부분필수|담당자코드|
+|`custcode`|부분필수|고객(거래처)코드|
+|`custname`|부분필수|고객(거래처)명|
+|`medictype`|부분필수|의약품구분(일반,전문)|
+|||_부분필수 : 거래처 등록 상점 일 경우 필수_|
 <br>
 
-## 7-6. 정산내역조회 응답값 설명 `servicecode = settlements`
+## 7-7. 정산내역조회 응답값 설명 `servicecode = settlements`
 >결제일`paydate` 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Required|Description
@@ -237,10 +262,10 @@ sample result
 |`vat`|필수|부가세|
 |`authnum`|필수|승인번호|
 |`servicename`|필수|서비스명(카드,현금)|
-|`purchasecode`|카드필수|[매입상태코드](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`purchasename`|카드필수|[매입상태명](#7-6-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
-|`oid`|필수|주문번호|
-|`tid`|필수|거래번호|
+|`purchasecode`|카드필수|[매입상태코드](#7-7-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`purchasename`|카드필수|[매입상태명](#7-7-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
+|`oid`|필수|PaynowBiz 주문번호|
+|`tid`|필수|TossPayments 거래번호|
 |`regdate`|필수|등록일(YYYY-MM-DD HH24:MI:SS)|
 |`paydate`|필수|결제일(YYYY-MM-DD)|
 |**`adjustdate`**|카드필수|**카드매출일(YYYY-MM-DD)**|
@@ -249,16 +274,16 @@ sample result
 |`settlementcode`|카드필수|카드결제기관|
 |`subservice`|카드필수|카드할부(이자/무이자)|
 |`installment`|카드필수|카드할부개월수|
-|`cardflag`|카드필수|카드구분(신용,체크,)|
+|`cardflag`|카드필수|카드구분(신용,체크,기프트)|
 |`productinfo`|선택|상품명|
 |`mntype`|카드필수|등급(일반,중소,영세)|
-|`mgrcode`|부분선택|담당자코드(스마트팜상점)|
-|`custcode`|부분필수|고객(거래처)코드(스마트팜상점)|
-|`custname`|부분필수|고객(거래처)명(스마트팜상점)|
-|`medictype`|부분필수|의약품구분(일반,전문)(스마트팜상점)|
-|||_부분필수 : 스마트팜가맹점 일 경우에 한해서 필수_|
+|`mgrcode`|부분선택|담당자코드|
+|`custcode`|부분필수|거래처코드|
+|`custname`|부분필수|거래처명|
+|`medictype`|부분필수|의약품구분(일반,전문)|
+|||_부분필수 : 거래처 등록 상점 일 경우 필수_|
 
-## 7-6-1. 정산 매입상태 설명
+## 7-7-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|Description
 |-----|-----|-----|-----|
 |카드|CA01|매입|승인 및 취소된 거래를 카드사로 청구(요청)하는 행위입니다.(매입이 되어야 승인 및 취소가 확정됩니다.)
@@ -271,7 +296,7 @@ sample result
 |현금|300|취소|
 <br>
 
-## 7-7. 결제취소 응답값 설명 `servicecode = cancel`
+## 7-8. 결제취소 응답값 설명 `servicecode in(cancel, cancelShopOid)`
 _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소성공입니다. 그 외의 코드는 msg를 확인 하시기 바랍니다.**_
 |code|msg|
 :-----:|-----|
