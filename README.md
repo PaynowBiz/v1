@@ -52,7 +52,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 <br>
 
 ## 5. 주의사항
-* `servicecode in (member, customer)` 인 경우만 해당하며, `app2appyn`를 Y로 할 경우 영업사원ID에 `initialname`(PaynowBiz제공) 이 붙으므로, 가맹점에서 연동방식을 정확히 확인 후 넘겨야 합니다.
+* `servicecode in (member, customer)` 인 경우만 해당하며, `app2appyn`를 Y로 할 경우 영업사원ID에 `initialname`(PaynowBiz제공) 이 붙으므로, 에서 연동방식을 정확히 확인 후 넘겨야 합니다.
 * `servicecode = member` 인 경우만 해당하며, `userpw` 최초 호출시만 저장됩니다. 비밀번호 수정을 하려고 재요청시 수정이 되지 않습니다. 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBiz앱([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
 * `servicecode = customer` 인 경우만 해당하며, `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 <br>
@@ -65,7 +65,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`app2appyn`|필수|1|Y or N|**App(Web) to App 가맹점 유무**|
+|`app2appyn`|필수|1|Y or N|**App(Web) to App 상점 유무**|
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
 |`usernm`|필수|128||영업사원명|
@@ -247,8 +247,8 @@ sample result
 |`reserved4`|선택|예약필드4|
 |`reserved5`|선택|예약필드5|
 |`mgrcode`|부분필수|담당자코드|
-|`custcode`|부분필수|고객(거래처)코드|
-|`custname`|부분필수|고객(거래처)명|
+|`custcode`|부분필수|거래처코드|
+|`custname`|부분필수|거래처명|
 |`medictype`|부분필수|의약품구분(일반,전문)|
 |||_부분필수 : 거래처 등록 상점 일 경우 필수_|
 <br>
@@ -289,7 +289,7 @@ sample result
 |카드|CA01|매입|승인 및 취소된 거래를 카드사로 청구(요청)하는 행위입니다.(매입이 되어야 승인 및 취소가 확정됩니다.)
 |카드|CA02|매입취소|승인 후 취소 발생 시 정산에서 차감되는 기준 거래입니다.
 |카드|CA03|매입반송|매입 후 특정사유에 의해 카드사가 거절한 거래로 결제대금 미입금에 따라 정산에서 차감될 수 있습니다.
-|카드|CA04|매입보류|특정 사유로 고객사(판매자)의 결제대금이 지급 보류된 상태입니다.(서류미비, 한도초과, 보증만료, 리스크 보류 등)
+|카드|CA04|매입보류|특정 사유로 상점의 결제대금이 지급 보류된 상태입니다.(서류미비, 한도초과, 보증만료, 리스크 보류 등)
 |카드|CA06|매입취소반송|매입 후 특정사유에 의해 카드사가 거절한 거래로 결제대금 미입금에 따라 정산에서 차감될 수 있습니다.
 |카드|CA11|부분취소|
 |현금|200|결제|
