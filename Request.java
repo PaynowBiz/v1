@@ -59,8 +59,8 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
         "  \"startdt\":\"20210315\"," + //조회 시작일
         "  \"enddt\":\"20210315\"," + //조회 종료일
-        "  \"oid\":\"\"," + //주문번호
-        "  \"tid\":\"\"}" + //거래번호
+        "  \"oid\":\"\"," + //PaynowBiz 주문번호
+        "  \"tid\":\"\"}" + //TossPayments 거래번호
         "  ]" + 
         "}";
         //취소^취소(상점주문번호)
