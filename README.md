@@ -171,7 +171,7 @@ Entity|Required|Length|Restriction|Description
 sample data json code
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "type":"card", "shop_oid":"{상점에서 결제 요청한 주문번호}"
+  "type":"card", "shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
 }
 ```
 <br>
@@ -218,7 +218,7 @@ sample result
 ## 7-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
 ```json
 sample result
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancelShopOid","data":"","result":{"msg":"취소성공","code":"0000","shop_oid":"{상점에서 결제 요청한 주문번호}"},"success":true}}
+{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancelShopOid","data":"","result":{"msg":"취소성공","code":"0000","shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
 ```
 <br>
 
