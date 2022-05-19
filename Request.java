@@ -15,11 +15,11 @@ import org.json.simple.parser.JSONParser;
 
 public class Request {
 /* 순서(IDX)를 바꿔가면서 테스트를 진행한다. 
- *      ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소
+ *      ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소, 5 : 결제취소(상점주문번호)
  *      ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
 private final static int IDX = 2;
-private final static List<String> SERVICECODE = Arrays.asList("member", "customer", "payments", "settlements", "cancel");
+private final static List<String> SERVICECODE = Arrays.asList("member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 //※중요 : {certkey, apikey}는 안전한 곳에 보관하시기 바랍니다.
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키 ☎)1544-7772
@@ -39,7 +39,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "    {\"userid\":\"biz003\",\"usernm\":\"박비즈\",\"userphone\":\"01011110003\",\"validyn\":\"N\",\"userpw\":\"chage here\"}"+ 
         "  ]" + 
         "}";
-        //고객(거래처) 등록/수정/삭제
+        //거래처 등록/수정/삭제
         String jsonCustomer = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
@@ -63,15 +63,16 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"tid\":\"\"}" + //거래번호
         "  ]" + 
         "}";
-      	//취소
+      	//취소^취소(상점주문번호)
 	String jsonCancel = "{" +
 	"  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
 	"  \"reqid\":\""+getRequestApiTime()+"\"," +
 	"  \"type\":\"card\"," +
 	"  \"oid\":\"{PaynowBiz 주문번호}\"," +
-	"  \"tid\":\"{TossPayments 거래번호}\"" +		    		
+	"  \"tid\":\"{TossPayments 거래번호}\"," +		    		
+        "  \"shop_oid\":\"{상점에서 결제한 주문번호}\"" +		    		
 	"}";
-        List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel);
+        List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
     
         String encryptData = new AES256Util(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
         System.out.println("[REQUEST] data="+encryptData);
