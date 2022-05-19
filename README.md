@@ -10,13 +10,13 @@
 　[6-2. 거래처 등록/수정/삭제](#6-2-거래처-등록수정삭제-servicecode--customer) <br>
 　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
-　[6-5. 결제취소(상점 주문번호)](#6-5-결제취소상점주문번호-servicecode--cancelshopoid) <br>
+　[6-5. 결제취소(상점 주문번호)](#6-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
 　[7-2. 영업사원, 거래처](#7-2-영업사원-거래처-servicecode-inmember-customer) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
-　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점주문번호-servicecode--cancelshopoid) <br>
+　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
 　[7-6. 거래내역조회 응답값 설명](#7-6-거래내역조회-응답값-설명-servicecode--payments) <br>
 　[7-7. 정산내역조회 응답값 설명](#7-7-정산내역조회-응답값-설명-servicecode--settlements)<br>
 　[7-7-1. 정산 매입상태 설명](#7-7-1-정산-매입상태-설명) <br>
