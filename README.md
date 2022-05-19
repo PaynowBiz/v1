@@ -41,13 +41,13 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
  3) [payments](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
  4) [settlements](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
  5) [cancel](#6-4-결제취소-servicecode--cancel) : 결제취소
- 6) [cancelShopOid](#6-5-결제취소(상점주문번호)-servicecode--cancelShopOid) : 결제취소(상점 주문번호)
+ 6) [cancelShopOid](#6-5-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
 <br>
 
 ## 4. data
-요청할 정보를 json으로 만든 후 AES암호화하여 POST방식으로 호출 합니다.
+요청할 정보를 json으로 만든 후 아래 단계로 감싼 후 POST방식으로 호출 합니다.
  * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
- * BASE64 인코딩
+ * [BASE64 인코딩](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.Encoder.html)
  * URL인코딩(UTF-8)
 <br>
 
