@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Request {
 /* 순서(IDX)를 바꿔가면서 테스트를 진행한다. 
- *      ㄴ 0 : 영업사원 등록/수정, 1 : 고객(거래처) 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소, 5 : 결제취소(상점주문번호)
+ *      ㄴ 0 : 영업사원 등록/수정, 1 : 거래처 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소, 5 : 결제취소(상점주문번호)
  *      ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
 private final static int IDX = 2;
@@ -158,7 +158,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("userphone=%s, ", jsonObj.get("userphone")));
               System.out.printf(String.format("validyn=%s\n", jsonObj.get("validyn")));
             }
-          //[오류확인] 영업사원별 고객(거래처) 등록/수정/삭제
+          //[오류확인] 영업사원별 거래처 등록/수정/삭제
           }else if("customer".equals(SERVICECODE.get(IDX))){
             for (Object obj : arrJSON) {
               JSONObject jsonObj = (JSONObject)obj;
