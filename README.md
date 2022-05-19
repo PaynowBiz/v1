@@ -124,8 +124,8 @@ sample data json code
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
 |`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
-|`oid`|선택|18|영문,숫자|주문번호|
-|`tid`|선택|24|영문,숫자|거래번호|
+|`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
+|`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 
 ▶ _**`startdt`** ~ **`enddt`** 의 조회기준 은 아래와 같습니다._<br>
 ▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
@@ -165,6 +165,8 @@ Entity|Required|Length|Restriction|Description
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`type`|필수|4|card|결제수단|
 |`shop_oid`|필수|64|영문,숫자|상점 주문번호|
+|`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
+|`tid`|선택|24|영문,숫자|TossPayments 번호|
 ```json
 sample data json code
 {
