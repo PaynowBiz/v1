@@ -120,7 +120,7 @@ sample data json code
 ## 6-3. 거래/정산 내역 조회 `servicecode in(payments, settlements)`
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
-|`certkey`|필수|16|영문,|인증키|
+|`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
 |`startdt`|필수|8|숫자|시작일[YYYYMMDD]|
 |`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
