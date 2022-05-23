@@ -166,7 +166,7 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card|결제수단|
 |`shop_oid`|필수|64|영문,숫자|상점 주문번호|
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
-|`tid`|선택|24|영문,숫자|TossPayments 번호|
+|`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
 sample data json code
 {
