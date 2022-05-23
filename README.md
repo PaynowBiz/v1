@@ -299,7 +299,9 @@ sample result
 <br>
 
 ## 7-8. 결제취소 응답값 설명 `servicecode in(cancel, cancelShopOid)`
-_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 취소성공입니다. 그 외의 코드는 msg를 확인 하시기 바랍니다.**_
+_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 `취소성공` `취소예약성공`입니다. <br>
+`취소예약성공`은 당일취소가 아니며,다음날 새벽에 취소처리를 위해 예약이 된 상태를 말합니다.<br>
+그 외의 코드는 msg를 확인 하시기 바랍니다.**_
 |code|msg|
 :-----:|-----|
 0000|취소성공, 취소예약성공
