@@ -146,7 +146,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`type`|필수|4|card|결제수단|
+|`type`|필수|4|card,cash|결제수단(카드,)|
 |`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
