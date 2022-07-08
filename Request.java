@@ -70,7 +70,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"type\":\"card\"," +
         "  \"oid\":\"{PaynowBiz 주문번호}\"," +
         "  \"tid\":\"{TossPayments 거래번호}\"," +		    		
-        "  \"shop_oid\":\"{상점에서 결제한 주문번호}\"" +		    		
+        "  \"shop_oid\":\"{간편결제로 상점에서 요청한 주문번호}\"" +		    		
         "}";
         List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
     
