@@ -171,7 +171,7 @@ Entity|Required|Length|Restriction|Description
 code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "type":"card", "shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+  "type":"card", "shop_oid":"{상점에서 간편결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
 }
 ```
 <br>
