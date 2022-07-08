@@ -74,7 +74,7 @@ Entity|Required|Length|Restriction|Description
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
 
 ```json
-sample data json code
+code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
@@ -106,7 +106,7 @@ sample data json code
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 
 ```json
-sample data json code
+code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
   "list": [
@@ -132,7 +132,7 @@ sample data json code
 ▶ 정산내역조회 = **`adjustdate`**<br>
 ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
 ```json
-sample data json code
+code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
   "startdt":"20210101", "enddt":"20210131",
@@ -150,7 +150,7 @@ Entity|Required|Length|Restriction|Description
 |`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
-sample data json code
+code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
   "type":"card", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
@@ -168,7 +168,7 @@ Entity|Required|Length|Restriction|Description
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
-sample data json code
+code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
   "type":"card", "shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
@@ -194,7 +194,7 @@ result.status|Description
 
 ## 7-2. 영업사원, 거래처 `servicecode in(member, customer)`
 ```json
-sample result
+code snippet
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
 ```
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
@@ -203,21 +203,21 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 
 ## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
 ```json
-sample result
+code snippet
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"{PaynowBiz 주문번호}","userid":"bizbiz","paydate":"20210316143540","tid":"{TossPayments 거래번호}","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}
 ```
 <br>
 
 ## 7-4. 결제취소 `servicecode = cancel`
 ```json
-sample result
+code snippet
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancel","data":"","result":{"msg":"취소성공","code":"0000","oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
 ```
 <br>
 
 ## 7-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
 ```json
-sample result
+code snippet
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancelShopOid","data":"","result":{"msg":"취소성공","code":"0000","shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
 ```
 <br>
