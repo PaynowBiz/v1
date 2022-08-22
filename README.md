@@ -68,7 +68,7 @@ Entity|Required|Length|Restriction|Description
 |`app2appyn`|필수|1|Y or N|**App(Web) to App 상점 유무**|
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
-|`usernm`|필수|64||영업사원명|
+|`usernm`|필수|128||영업사원명|
 |`userphone`|필수|11|숫자(-제외)|영업사원 휴대폰번호|
 |`validyn`|필수|1|Y or N|활성화상태|
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
