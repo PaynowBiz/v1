@@ -19,7 +19,7 @@ public class Request {
  *      ㄴ 0, 1, 2 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
 private final static int IDX = 2;
-private final static List<String> SERVICECODE = Arrays.asList("", "member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
+private final static List<String> SERVICECODE = Arrays.asList("branch", "member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 //※중요 : {certkey, apikey}는 안전한 곳에 보관하시기 바랍니다.
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키 ☎)1544-7772
