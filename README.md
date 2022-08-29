@@ -7,7 +7,7 @@
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
 　[6-1. 지점 등록/수정](#6-1-지점-등록수정-servicecode--branch) <br>
-  [6-2. 영업사원 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
+　[6-2. 영업사원 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
 　[6-3. 거래처 등록/수정/삭제](#6-3-거래처-등록수정삭제-servicecode--customer) <br>
 　[6-4. 거래/정산 내역 조회](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-5. 결제취소](#6-5-결제취소-servicecode--cancel) <br>
