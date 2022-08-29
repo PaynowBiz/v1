@@ -2,7 +2,7 @@
 
 [1. 개요](#1-개요) <br>
 [2. URL 정보](#2-url정보) <br>
-[3. 서비스코드](#3-servicecode) <br>
+[3. servicecode](#3-servicecode) <br>
 [4. data](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
