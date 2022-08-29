@@ -15,11 +15,11 @@ import org.json.simple.parser.JSONParser;
 
 public class Request {
 /* 순서(IDX)를 바꿔가면서 테스트를 진행한다. 
- *      ㄴ 0 : 영업사원 등록/수정, 1 : 거래처 등록/수정/삭제, 2 : 거래내역조회, 3 : 정산내역조회, 4 : 결제취소, 5 : 결제취소(상점주문번호)
- *      ㄴ 0, 1 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
+ *      ㄴ 0 : 지점 등록/수정, 1 : 영업사원 등록/수정, 2 : 거래처 등록/수정/삭제, 3 : 거래내역조회, 4 : 정산내역조회, 5 : 결제취소, 6 : 결제취소(상점주문번호)
+ *      ㄴ 0, 1, 2 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
 private final static int IDX = 2;
-private final static List<String> SERVICECODE = Arrays.asList("member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
+private final static List<String> SERVICECODE = Arrays.asList("", "member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 //※중요 : {certkey, apikey}는 안전한 곳에 보관하시기 바랍니다.
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키 ☎)1544-7772
@@ -28,13 +28,23 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
   
   public static void main(String[] args) {
     try{
+        //지점 등록/수정
+        String jsonBranch = "{" +
+        "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
+        "  \"reqid\":\""+getRequestApiTime()+"\"," +
+        "  \"list\": [" + 
+        "    {\"branchid\":\"Gangnam\",\"branchnm\":\"강남점\",\"usernm\":\"강토스\",\"userphone\":\"01012341001\",\"validyn\":\"Y\",\"userpw\":\"change here\",\"branchaddress1\":\"\",\"branchzip\":\"\"},"+
+        "    {\"branchid\":\"yeoksam\",\"branchnm\":\"역삼점\",\"usernm\":\"역토스\",\"userphone\":\"01012341002\",\"validyn\":\"Y\",\"userpw\":\"change here\",\"branchaddress1\":\"서울특별시 강남구 테헤란로 131\",\"branchaddress2\":\"한국지식재산센터(KIPS) 15층\",\"branchzip\":\"06133\",\"branchtel\":\"15447772\"}"+
+        "  ]" + 
+        "}";      
+      
         //영업사원 등록/수정
         String jsonMember = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
-        "  \"app2appyn\":\"N\"," + //가맹점APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함. 
+        "  \"app2appyn\":\"N\"," + //가맹점APP(WEB) to PaynowBizAPP을 연동중 AUTO_REG = Y 로 넘겼을 경우 즉, initialname_userid로 등록되는 경우 Y로 넘겨야 합니다. 
         "  \"list\": [" + 
-        "    {\"userid\":\"biz001\",\"usernm\":\"김비즈\",\"userphone\":\"01011110001\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+
+        "    {\"userid\":\"biz001\",\"usernm\":\"김비즈\",\"userphone\":\"01011110001\",\"validyn\":\"Y\",\"userpw\":\"change here\",\"branchid\":\"yeoksam\"},"+
         "    {\"userid\":\"biz002\",\"usernm\":\"이비즈\",\"userphone\":\"01011110002\",\"validyn\":\"Y\",\"userpw\":\"change here\"},"+ 
         "    {\"userid\":\"biz003\",\"usernm\":\"박비즈\",\"userphone\":\"01011110003\",\"validyn\":\"N\",\"userpw\":\"chage here\"}"+ 
         "  ]" + 
@@ -43,7 +53,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         String jsonCustomer = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
-        "  \"app2appyn\":\"N\"," + //APP(WEB) to PaynowBizAPP을 연동중 임을 구분하기 위함.
+        "  \"app2appyn\":\"N\"," + //APP(WEB) to PaynowBizAPP을 연동중 AUTO_REG = Y 로 넘겼을 경우 즉, initialname_userid로 등록되는 경우 Y로 넘겨야 합니다. 
         "  \"list\": [" + 
         "    {\"userid\":\"{mertid}\",\"custcode\":\"A001\",\"custphone\":\"01022220001\",\"custname\":\"역삼약국\",\"useyn\":\"Y\",\"custaddress1\":\"서울특별시 강남구 테헤란로 131\",\"custaddress2\":\"한국지식재산센터(KIPS) 15층\",\"custzip\":\"06133\",\"businessno\":\"4118601799\",\"custfax\":\"0222220001\",\"custemail\":\"yeoksam@medic.com\"},"+
         "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
@@ -72,7 +82,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"tid\":\"{TossPayments 거래번호}\"," +		    		
         "  \"shop_oid\":\"{간편결제로 상점에서 요청한 주문번호}\"" +		    		
         "}";
-        List<String> jsonData = Arrays.asList(jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
+        List<String> jsonData = Arrays.asList(jsonBranch, jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
     
         String encryptData = new AES256Util(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
         System.out.println("[REQUEST] data="+encryptData);
@@ -147,16 +157,34 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
           System.out.printf(String.format("▶▶ 성공카운트 : %s, 실패카운트 : %s\n", String.valueOf(errJSON.get("countOfSuccess")), String.valueOf(errJSON.get("countOfFailure"))));
         
           JSONArray arrJSON = (JSONArray)errJSON.get("list");
-        
+
+          //[오류확인] 지점 등록/수정
+          if("branch".equals(SERVICECODE.get(IDX))){
+            for (Object obj : arrJSON) {
+              JSONObject jsonObj = (JSONObject)obj;
+              System.out.printf(String.format("▶▶ err=%s, ", jsonObj.get("err")));
+              System.out.printf(String.format("branchid[PK]=%s, ", jsonObj.get("branchid")));
+              System.out.printf(String.format("branchnm=%s, ", jsonObj.get("branchnm")));
+              System.out.printf(String.format("usernm=%s, ", jsonObj.get("usernm")));
+              System.out.printf(String.format("userphone=%s, ", jsonObj.get("userphone")));
+              System.out.printf(String.format("userpw=%s, ", jsonObj.get("userpw")));
+              System.out.printf(String.format("validyn=%s, ", jsonObj.get("validyn")));
+              System.out.printf(String.format("branchtel=%s, ", jsonObj.get("branchtel")));        					
+              System.out.printf(String.format("branchzip=%s, ", jsonObj.get("branchzip")));        					
+              System.out.printf(String.format("branchaddress1=%s, ", jsonObj.get("branchaddress1")));
+              System.out.printf(String.format("branchaddress2=%s\n", jsonObj.get("branchaddress2")));
+            }
           //[오류확인] 영업사원 등록/수정
-          if("member".equals(SERVICECODE.get(IDX))){
+          }else if("member".equals(SERVICECODE.get(IDX))){
             for (Object obj : arrJSON) {
               JSONObject jsonObj = (JSONObject)obj;
               System.out.printf(String.format("▶▶ err=%s, ", jsonObj.get("err")));
               System.out.printf(String.format("userid[PK]=%s, ", jsonObj.get("userid")));
               System.out.printf(String.format("usernm=%s, ", jsonObj.get("usernm")));
               System.out.printf(String.format("userphone=%s, ", jsonObj.get("userphone")));
+              System.out.printf(String.format("userpw=%s, ", jsonObj.get("userpw")));
               System.out.printf(String.format("validyn=%s\n", jsonObj.get("validyn")));
+              System.out.printf(String.format("branchid=%s\n", jsonObj.get("branchid")));              
             }
           //[오류확인] 영업사원별 거래처 등록/수정/삭제
           }else if("customer".equals(SERVICECODE.get(IDX))){
