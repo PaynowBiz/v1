@@ -6,11 +6,12 @@
 [4. 데이타](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
-　[6-1. 영업사원 등록/수정](#6-1-영업사원-등록수정-servicecode--member) <br>
-　[6-2. 거래처 등록/수정/삭제](#6-2-거래처-등록수정삭제-servicecode--customer) <br>
-　[6-3. 거래/정산 내역 조회](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
-　[6-4. 결제취소](#6-4-결제취소-servicecode--cancel) <br>
-　[6-5. 결제취소(상점 주문번호)](#6-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
+　[6-1. 지점 등록/수정](#6-1-지점-등록수정-servicecode--branch) <br>
+  [6-2. 영업사원 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
+　[6-3. 거래처 등록/수정/삭제](#6-3-거래처-등록수정삭제-servicecode--customer) <br>
+　[6-4. 거래/정산 내역 조회](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
+　[6-5. 결제취소](#6-5-결제취소-servicecode--cancel) <br>
+　[6-6. 결제취소(상점 주문번호)](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
 　[7-2. 영업사원, 거래처](#7-2-영업사원-거래처-servicecode-inmember-customer) <br>
@@ -36,12 +37,14 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 <br>
 
 ## 3. servicecode
- 0) [member](#6-1-영업사원-등록수정-servicecode--member) : 상점 영업사원 등록 / 수정
- 1) [customer](#6-2-거래처-등록수정삭제-servicecode--customer) : 거래처 등록 /수정 / 삭제
- 2) [payments](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
- 3) [settlements](#6-3-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
- 4) [cancel](#6-4-결제취소-servicecode--cancel) : 결제취소
- 5) [cancelShopOid](#6-5-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
+ 0) [branch](#6-1-지점-등록수정-servicecode--branch) : 지점 등록 / 수정
+ 1) [member](#6-2-영업사원-등록수정-servicecode--member) : 상점 영업사원 등록 / 수정
+ 2) [customer](#6-3-거래처-등록수정삭제-servicecode--customer) : 거래처 등록 /수정 / 삭제
+ 3) [payments](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
+ 4) [settlements](#6-5-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
+ 5) [cancel](#6-6-결제취소-servicecode--cancel) : 결제취소
+ 6) [cancelShopOid](#6-7-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
+ 
 <br>
 
 ## 4. data
@@ -55,15 +58,43 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 * `servicecode in (member, customer)` 
   >`app2appyn`= Y 는 영업사원ID에 `initialname`(PaynowBiz제공) 이 붙으므로, 상점 에서 연동방식을 정확히 확인 후 넘겨야 합니다.<br>
   >`userphone` `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
-* `servicecode = member`
+* `servicecode in (member, branch)`
   >`userpw` 최초 호출시만 저장됩니다. 비밀번호 수정을 하려고 재요청시 수정이 되지 않습니다.<br> 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBiz앱([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[아이폰](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
-
 <br>
 
 ## 6. 요청정보
 <br>
+## 6-1. 지점 등록/수정 `servicecode = branch`
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`list`||||_아래 정보를 배열로 처리_|
+|`branchid` **[PK]**|필수|19|영문, 숫자|지점ID|
+|`branchnm`|필수|65||지점명|
+|`userphone`|필수|11|숫자(-제외)|지점 관리자 휴대폰번호|
+|`usernm`|필수|128||지점 관리자 명|
+|`validyn`|필수|1|Y or N|활성화상태|
+|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
+|`branchaddress1`| 선택|128||지점 주소1|
+|`branchaddress2`|선택|128||지점 주소2|
+|`branchzip`|선택|5||지점 우편번호|
+|`branchtel`|선택|20|숫자|지점 전화번호|
 
-## 6-1. 영업사원 등록/수정 `servicecode = member`
+```json
+code snippet
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}",
+  "list": [
+    {"branchid": "Gangnam","branchnm": "강남점","userphone": "01012340001","usernm": "강토스","validyn": "Y","userpw": "change here","branchaddress1": "","branchaddress2": "","branchzip": "","branchtel":""},
+    {"branchid": "Yeoksam1","branchnm": "역삼1호점","userphone": "01012340002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "15층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"},
+    {"branchid": "Yeoksam2","branchnm": "역삼2호점","userhpone": "01012340002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "14층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"}    
+  ]
+}
+```
+<br>
+
+## 6-2. 영업사원 등록/수정 `servicecode = member`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -75,6 +106,7 @@ Entity|Required|Length|Restriction|Description
 |`userphone`|필수|11|숫자(-제외)|영업사원 휴대폰번호|
 |`validyn`|필수|1|Y or N|활성화상태|
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
+|`branchid`|선택|19|영문, 숫자|지점ID|
 
 ```json
 code snippet
@@ -89,7 +121,7 @@ code snippet
 ```
 <br>
 
-## 6-2. 거래처 등록/수정/삭제 `servicecode = customer`
+## 6-3. 거래처 등록/수정/삭제 `servicecode = customer`
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -120,7 +152,7 @@ code snippet
 ```
 <br>
 
-## 6-3. 거래/정산 내역 조회 `servicecode in(payments, settlements)`
+## 6-4. 거래/정산 내역 조회 `servicecode in(payments, settlements)`
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -144,7 +176,7 @@ code snippet
 ```
 <br>
 
-## 6-4. 결제취소 `servicecode = cancel`
+## 6-5. 결제취소 `servicecode = cancel`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -161,7 +193,7 @@ code snippet
 ```
 <br>
 
-## 6-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
+## 6-6. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
