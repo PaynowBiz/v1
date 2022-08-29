@@ -14,7 +14,7 @@
 　[6-6. 결제취소(상점 주문번호)](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 영업사원, 거래처](#7-2-영업사원-거래처-servicecode-inmember-customer) <br>
+　[7-2. 지점, 영업사원, 거래처](#7-2-지점-영업사원-거래처-servicecode-inbranch-member-customer) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
@@ -41,9 +41,9 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
  1) [member](#6-2-영업사원-등록수정-servicecode--member) : 상점 영업사원 등록 / 수정
  2) [customer](#6-3-거래처-등록수정삭제-servicecode--customer) : 거래처 등록 /수정 / 삭제
  3) [payments](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
- 4) [settlements](#6-5-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
- 5) [cancel](#6-6-결제취소-servicecode--cancel) : 결제취소
- 6) [cancelShopOid](#6-7-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
+ 4) [settlements](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
+ 5) [cancel](#6-5-결제취소-servicecode--cancel) : 결제취소
+ 6) [cancelShopOid](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
  
 <br>
 
@@ -64,6 +64,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 
 ## 6. 요청정보
 <br>
+
 ## 6-1. 지점 등록/수정 `servicecode = branch`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
@@ -75,7 +76,7 @@ Entity|Required|Length|Restriction|Description
 |`userphone`|필수|11|숫자(-제외)|지점 관리자 휴대폰번호|
 |`usernm`|필수|128||지점 관리자 명|
 |`validyn`|필수|1|Y or N|활성화상태|
-|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
+|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|지점 관리자 패스워드|
 |`branchaddress1`| 선택|128||지점 주소1|
 |`branchaddress2`|선택|128||지점 주소2|
 |`branchzip`|선택|5||지점 우편번호|
@@ -227,7 +228,7 @@ result.status|Description
 999|시스템 오류가 있을 경우
 <br>
 
-## 7-2. 영업사원, 거래처 `servicecode in(member, customer)`
+## 7-2. 지점, 영업사원, 거래처 `servicecode in(branch, member, customer)`
 ```json
 code snippet
 {"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
