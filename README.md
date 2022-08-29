@@ -87,9 +87,9 @@ code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}",
   "list": [
-    {"branchid": "Gangnam","branchnm": "강남점","userphone": "01012340001","usernm": "강토스","validyn": "Y","userpw": "change here","branchaddress1": "","branchaddress2": "","branchzip": "","branchtel":""},
-    {"branchid": "Yeoksam1","branchnm": "역삼1호점","userphone": "01012340002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "15층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"},
-    {"branchid": "Yeoksam2","branchnm": "역삼2호점","userhpone": "01012340002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "14층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"}    
+    {"branchid": "Gangnam","branchnm": "강남점","userphone": "01012341001","usernm": "강토스","validyn": "Y","userpw": "change here","branchaddress1": "","branchaddress2": "","branchzip": "","branchtel":""},
+    {"branchid": "Yeoksam1","branchnm": "역삼1호점","userphone": "01012341002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "15층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"},
+    {"branchid": "Yeoksam2","branchnm": "역삼2호점","userhpone": "01012341002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "14층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"}    
   ]
 }
 ```
@@ -106,17 +106,17 @@ Entity|Required|Length|Restriction|Description
 |`usernm`|필수|128||영업사원명|
 |`userphone`|필수|11|숫자(-제외)|영업사원 휴대폰번호|
 |`validyn`|필수|1|Y or N|활성화상태|
-|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|패스워드|
+|`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|영업사원 패스워드|
 |`branchid`|선택|19|영문, 숫자|지점ID|
 
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"Y",
   "list": [
-    {"userid": "biz001","usernm": "김토스","userpw": "change here","userhp": "01012340001","validyn": "Y"},
-    {"userid": "biz002","usernm": "이토스","userpw": "change here","userhp": "01012340002","validyn": "Y"},
-    {"userid": "biz003","usernm": "박토스","userpw": "change here","userhp": "01012340003","validyn": "Y"}    
+    {"userid": "biz001","usernm": "김토스","userpw": "change here","userhp": "01012340001","validyn": "Y","branchid":"Gangnam"},
+    {"userid": "biz002","usernm": "이토스","userpw": "change here","userhp": "01012340002","validyn": "Y","branchid":"Yeoksam1"},
+    {"userid": "biz003","usernm": "박토스","userpw": "change here","userhp": "01012340003","validyn": "Y","branchid":"Yeoksam1"}    
   ]
 }
 ```
@@ -144,7 +144,7 @@ code snippet
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"N",
+  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"Y",
   "list": [
     {"userid":"{mertid}","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01012345678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"},
     {"userid": "biz001","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01077775678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"}
