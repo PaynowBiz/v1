@@ -85,11 +85,33 @@ Entity|Required|Length|Restriction|Description
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}",
+  "certkey": "{PanowBiz에서 발급받은 인증키}",
+  "reqid": "{yyyyMMddHHmmssSSS}",
   "list": [
-    {"branchid": "Gangnam","branchnm": "강남점","userphone": "01012341001","usernm": "강토스","validyn": "Y","userpw": "change here","branchaddress1": "","branchaddress2": "","branchzip": "","branchtel":""},
-    {"branchid": "Yeoksam1","branchnm": "역삼1호점","userphone": "01012341002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "15층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"},
-    {"branchid": "Yeoksam2","branchnm": "역삼2호점","userhpone": "01012341002","usernm": "역토스","validyn": "Y","userpw": "change here","branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)","branchaddress2": "14층 토스페이먼츠","branchzip": "06133","branchtel":"15447772"}    
+    {
+      "branchid": "Gangnam",
+      "branchnm": "강남점",
+      "userphone": "01012341001",
+      "usernm": "강토스",
+      "validyn": "Y",
+      "userpw": "change here",
+      "branchaddress1": "",
+      "branchaddress2": "",
+      "branchzip": "",
+      "branchtel": ""
+    },
+    {
+      "branchid": "Yeoksam1",
+      "branchnm": "역삼1호점",
+      "userphone": "01012341002",
+      "usernm": "역토스",
+      "validyn": "Y",
+      "userpw": "change here",
+      "branchaddress1": "서울특별시 강남구 테헤란로 131 (역삼동, 한국지식재산센터)",
+      "branchaddress2": "15층 토스페이먼츠",
+      "branchzip": "06133",
+      "branchtel": "15447772"
+    }
   ]
 }
 ```
@@ -112,11 +134,33 @@ Entity|Required|Length|Restriction|Description
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"Y",
+  "certkey": "{PanowBiz에서 발급받은 인증키}",
+  "reqid": "{yyyyMMddHHmmssSSS}",
+  "app2appyn": "Y",
   "list": [
-    {"userid": "biz001","usernm": "김토스","userpw": "change here","userhp": "01012340001","validyn": "Y","branchid":"Gangnam"},
-    {"userid": "biz002","usernm": "이토스","userpw": "change here","userhp": "01012340002","validyn": "Y","branchid":"Yeoksam1"},
-    {"userid": "biz003","usernm": "박토스","userpw": "change here","userhp": "01012340003","validyn": "Y","branchid":"Yeoksam1"}    
+    {
+      "userid": "biz001",
+      "usernm": "김토스",
+      "userpw": "change here",
+      "userhp": "01012340001",
+      "validyn": "Y",
+      "branchid": "Gangnam"
+    },
+    {
+      "userid": "biz002",
+      "usernm": "이토스",
+      "userpw": "change here",
+      "userhp": "01012340002",
+      "validyn": "Y",
+      "branchid": "Yeoksam1"
+    },
+    {
+      "userid": "biz003",
+      "usernm": "박토스",
+      "userpw": "change here",
+      "userhp": "01012340003",
+      "validyn": "Y"
+    }
   ]
 }
 ```
@@ -144,10 +188,34 @@ code snippet
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", "app2appyn":"Y",
+  "certkey": "{PanowBiz에서 발급받은 인증키}",
+  "reqid": "{yyyyMMddHHmmssSSS}",
+  "app2appyn": "Y",
   "list": [
-    {"userid":"{mertid}","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01012345678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"},
-    {"userid": "biz001","custcode":"A001","custname":"역삼약국","custaddress1":"서울시 강남구 역삼동 한국지식재산센터","custaddress2":"15층 역삼약국","custzip":"12345","custphone":"01077775678","custfax":"0212345678","custemail":"paynowbiz@tosspayments.com","useyn":"Y"}
+    {
+      "userid": "{mertid}",
+      "custcode": "A001",
+      "custname": "역삼약국",
+      "custaddress1": "서울시 강남구 역삼동 한국지식재산센터",
+      "custaddress2": "15층 역삼약국",
+      "custzip": "12345",
+      "custphone": "01012345678",
+      "custfax": "0212345678",
+      "custemail": "paynowbiz@tosspayments.com",
+      "useyn": "Y"
+    },
+    {
+      "userid": "biz001",
+      "custcode": "A001",
+      "custname": "역삼약국",
+      "custaddress1": "서울시 강남구 역삼동 한국지식재산센터",
+      "custaddress2": "15층 역삼약국",
+      "custzip": "12345",
+      "custphone": "01077775678",
+      "custfax": "0212345678",
+      "custemail": "paynowbiz@tosspayments.com",
+      "useyn": "Y"
+    }
   ]
 }
 ```
@@ -170,9 +238,12 @@ code snippet
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "startdt":"20210101", "enddt":"20210131",
-  "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+  "certkey":"{PanowBiz에서 발급받은 인증키}", 
+  "reqid":"{yyyyMMddHHmmssSSS}", 
+  "startdt":"20210101", 
+  "enddt":"20210131",
+  "oid":"{PaynowBiz 주문번호}",
+  "tid":"{TossPayments 거래번호}"
 }
 ```
 <br>
@@ -188,8 +259,11 @@ Entity|Required|Length|Restriction|Description
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "type":"card", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+  "certkey":"{PanowBiz에서 발급받은 인증키}", 
+  "reqid":"{yyyyMMddHHmmssSSS}", 
+  "type":"card", 
+  "oid":"{PaynowBiz 주문번호}",
+  "tid":"{TossPayments 거래번호}"
 }
 ```
 <br>
@@ -206,8 +280,12 @@ Entity|Required|Length|Restriction|Description
 ```json
 code snippet
 {
-  "certkey":"{PanowBiz에서 발급받은 인증키}", "reqid":"{yyyyMMddHHmmssSSS}", 
-  "type":"card", "shop_oid":"{상점에서 간편결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"
+  "certkey": "{PanowBiz에서 발급받은 인증키}",
+  "reqid": "{yyyyMMddHHmmssSSS}",
+  "type": "card",
+  "shop_oid": "{상점에서 간편결제 요청한 주문번호}",
+  "oid": "{PaynowBiz 주문번호}",
+  "tid": "{TossPayments 거래번호}"
 }
 ```
 <br>
@@ -231,7 +309,17 @@ result.status|Description
 ## 7-2. 지점, 영업사원, 거래처 `servicecode in(branch, member, customer)`
 ```json
 code snippet
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3","success":true}}
+{
+  "result": {
+    "status": "200",
+    "msg": "success",
+    "service": "paynowbiz",
+    "function": "/v1/{mertid}/{servicecode}",
+    "data": "",
+    "result": "/K+VQ9mi4fuWXGWLqCPfNlbztOpJDJKy5WCXeb+/vRej42gfpEfXLzQok+c6rYg3",
+    "success": true
+  }
+}
 ```
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
 ![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
@@ -240,21 +328,92 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 ## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
 ```json
 code snippet
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/{servicecode}","data":"","result":"[{"usernm":"김*영","amount":"50000","authnum":"00000000","memo":"","oid":"{PaynowBiz 주문번호}","userid":"bizbiz","paydate":"20210316143540","tid":"{TossPayments 거래번호}","cashbill":"","canceldate":"","cardnum":"625******3043","financecode":"31","installment":"0","reserved3":"","reserved2":"","reserved1":"","servicename":"카드","custcode":"A002","productinfo":"","financename":"비씨","custname":"도래울약국","reserved5":"","status":"승인성공","reserved4":""},{"totalcnt":1}],"success":true}}
+{
+  "result": {
+    "status": "200",
+    "msg": "success",
+    "service": "paynowbiz",
+    "function": "/v1/{mertid}/{servicecode}",
+    "data": "",
+    "result": [
+      {
+        "usernm": "유*주",
+        "amount": "50000",
+        "authnum": "00000000",
+        "memo": "",
+        "oid": "{PaynowBiz 주문번호}",
+        "userid": "bizbiz",
+        "paydate": "20210316143540",
+        "tid": "{TossPayments 거래번호}",
+        "cashbill": "",
+        "canceldate": "",
+        "cardnum": "49063212******43",
+        "financecode": "31",
+        "installment": "0",
+        "reserved3": "",
+        "reserved2": "",
+        "reserved1": "",
+        "servicename": "카드",
+        "custcode": "A002",
+        "productinfo": "",
+        "financename": "비씨",
+        "custname": "도래울약국",
+        "reserved5": "",
+        "status": "승인성공",
+        "reserved4": ""
+      },
+      {
+        "totalcnt": 1
+      }
+    ],
+    "success": true
+  }
+}
 ```
 <br>
 
 ## 7-4. 결제취소 `servicecode = cancel`
 ```json
 code snippet
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancel","data":"","result":{"msg":"취소성공","code":"0000","oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
+{
+  "result": {
+    "status": "200",
+    "msg": "success",
+    "service": "paynowbiz",
+    "function": "/v1/{mertid}/cancel",
+    "data": "",
+    "result": {
+      "msg": "취소성공",
+      "code": "0000",
+      "oid": "{PaynowBiz 주문번호}",
+      "tid": "{TossPayments 거래번호}"
+    },
+    "success": true
+  }
+}
 ```
 <br>
 
 ## 7-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
 ```json
 code snippet
-{"result":{"status":"200","msg":"success","service":"paynowbiz","function":"/v1/{mertid}/cancelShopOid","data":"","result":{"msg":"취소성공","code":"0000","shop_oid":"{상점에서 결제 요청한 주문번호}", "oid":"{PaynowBiz 주문번호}","tid":"{TossPayments 거래번호}"},"success":true}}
+{
+  "result": {
+    "status": "200",
+    "msg": "success",
+    "service": "paynowbiz",
+    "function": "/v1/{mertid}/cancelShopOid",
+    "data": "",
+    "result": {
+      "msg": "취소성공",
+      "code": "0000",
+      "shop_oid": "{상점에서 결제 요청한 주문번호}",
+      "oid": "{PaynowBiz 주문번호}",
+      "tid": "{TossPayments 거래번호}"
+    },
+    "success": true
+  }
+}
 ```
 <br>
 
