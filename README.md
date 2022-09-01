@@ -25,7 +25,7 @@
 [8. 문의하기](#8-문의하기) <br>
  
 ## 1. 개요
- PaynowBiz를 이용하는 가맹점(상점) 이하, 상점에서 영업사원과 고객(거래처) 이하, 거래처 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제취소를 돕는 연동가이드 문서 입니다.
+ PaynowBiz를 이용하는 가맹점(상점) 이하, 상점에서 영업사원과 고객(거래처) 이하, 거래처 정보를 PaynowBiz 서버로 연동하여 동기화 하고, 거래내역 및 정산내역을 조회 할 수 있으며, 결제 취소를 돕는 연동가이드 문서 입니다.
 
 * [테스트 페이지](https://paynowbiz.tosspayments.com/sample/v1View.do) 에서 테스트로 발급된 상점ID(bizbiz)로 테스트해 볼수 있습니다.
 * [Request.java](https://github.com/PaynowBiz/v1/blob/main/Request.java) 를 다운받아 코딩 하면 됩니다.
@@ -337,30 +337,33 @@ code snippet
     "data": "",
     "result": [
       {
+        "userid": "bizbiz",
         "usernm": "유*주",
         "amount": "50000",
-        "authnum": "00000000",
-        "memo": "",
-        "oid": "{PaynowBiz 주문번호}",
-        "userid": "bizbiz",
-        "paydate": "20210316143540",
-        "tid": "{TossPayments 거래번호}",
-        "cashbill": "",
-        "canceldate": "",
-        "cardnum": "49063212******43",
-        "financecode": "31",
-        "installment": "0",
-        "reserved3": "",
-        "reserved2": "",
-        "reserved1": "",
         "servicename": "카드",
-        "custcode": "A002",
-        "productinfo": "",
+        "status": "승인성공",        
+        "oid": "{PaynowBiz 주문번호}",
+        "tid": "{TossPayments 거래번호}",
+        "cardnum": "49063212******43",
+        "authnum": "12345678",
+        "paydate": "20210316143540",
+        "canceldate": "",
+        "financecode": "31",
         "financename": "비씨",
-        "custname": "도래울약국",
+        "installment": "0",
+        "cardflag": "신용",
+        "productinfo": "",
+        "memo": "",
+        "cashbill": "",
+        "reserved1": "",
+        "reserved2": "",
+        "reserved3": "",
+        "reserved4": "",
         "reserved5": "",
-        "status": "승인성공",
-        "reserved4": ""
+        "mgrcode": "bizbiz",
+        "custcode": "A002",
+        "custname": "도래울약국",
+        "medictype":"일반"
       },
       {
         "totalcnt": 1
