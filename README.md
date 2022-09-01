@@ -94,11 +94,7 @@ code snippet
       "userphone": "01012341001",
       "usernm": "강토스",
       "validyn": "Y",
-      "userpw": "change here",
-      "branchaddress1": "",
-      "branchaddress2": "",
-      "branchzip": "",
-      "branchtel": ""
+      "userpw": "change here"
     },
     {
       "branchid": "Yeoksam1",
