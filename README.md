@@ -83,7 +83,6 @@ Entity|Required|Length|Restriction|Description
 |`branchtel`|선택|20|숫자|지점 전화번호|
 
 ```json
-code snippet
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
@@ -128,7 +127,6 @@ Entity|Required|Length|Restriction|Description
 |`branchid`|선택|19|영문, 숫자|지점ID|
 
 ```json
-code snippet
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
@@ -182,7 +180,6 @@ code snippet
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 
 ```json
-code snippet
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
@@ -253,7 +250,6 @@ Entity|Required|Length|Restriction|Description
 |`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
-code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", 
   "reqid":"{yyyyMMddHHmmssSSS}", 
@@ -304,7 +300,6 @@ result.status|Description
 
 ## 7-2. 지점, 영업사원, 거래처 `servicecode in(branch, member, customer)`
 ```json
-code snippet
 {
   "result": {
     "status": "200",
@@ -323,7 +318,6 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 
 ## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
 ```json
-code snippet
 {
   "result": {
     "status": "200",
@@ -373,7 +367,6 @@ code snippet
 
 ## 7-4. 결제취소 `servicecode = cancel`
 ```json
-code snippet
 {
   "result": {
     "status": "200",
@@ -395,7 +388,6 @@ code snippet
 
 ## 7-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
 ```json
-code snippet
 {
   "result": {
     "status": "200",
