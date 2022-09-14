@@ -70,7 +70,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`list`||||_아래 정보를 배열로 처리_|
+|`list`||||<span style="color:red">아래 정보를 배열로 처리</span>|
 |`branchid` **[PK]**|필수|19|영문, 숫자|지점ID|
 |`branchnm`|필수|65||지점명|
 |`userphone`|필수|11|숫자(-제외)|지점 관리자 휴대폰번호|
