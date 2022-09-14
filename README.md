@@ -229,7 +229,6 @@ Entity|Required|Length|Restriction|Description
 ▶ 정산내역조회 = **`adjustdate`**<br>
 ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
 ```json
-code snippet
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", 
   "reqid":"{yyyyMMddHHmmssSSS}", 
@@ -270,7 +269,6 @@ Entity|Required|Length|Restriction|Description
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 ```json
-code snippet
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
