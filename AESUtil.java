@@ -5,7 +5,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AES256Util {
+public class AESUtil {
   private final Key keySpec;
   private final byte[] ivBytes = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
@@ -14,7 +14,7 @@ public class AES256Util {
     * @param    암호화키
     * @exception 
     */
-  public AES256Util(String key) throws Exception {
+  public AESUtil(String key) throws Exception {
     byte[] keyBytes = key.getBytes("UTF-8");
     SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
 
