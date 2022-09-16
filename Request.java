@@ -84,7 +84,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "}";
         List<String> jsonData = Arrays.asList(jsonBranch, jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
     
-        String encryptData = new AES256Util(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
+        String encryptData = new AESUtil(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
         System.out.println("[REQUEST] data="+encryptData);
     
        //post request
@@ -150,7 +150,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         if("201".equals(status) || "202".equals(status)) {
           String result = String.valueOf(data.get("result"));
           //오류내용 복호화
-          String decryptStr = new AES256Util(PAYNOWBIZ_APIKEY).strDecode(result);
+          String decryptStr = new AESUtil(PAYNOWBIZ_APIKEY).strDecode(result);
           //System.out.println("[RESPONSE] result.result = " + decryptStr);
         
           JSONObject errJSON = (JSONObject) new JSONParser().parse(decryptStr);
