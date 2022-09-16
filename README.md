@@ -49,7 +49,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 
 ## 4. data
 요청할 정보를 json으로 만든 후 아래 단계로 감싼 후 POST방식으로 호출 합니다.
- * [AES-256](https://github.com/PaynowBiz/v1/blob/main/AES256Util.java) 암호화 
+ * [AES-128](https://github.com/PaynowBiz/v1/blob/main/AESUtil.java) 암호화 
  * [BASE64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.Encoder.html) 인코더
  * [URLEncoder(UTF-8)](https://docs.oracle.com/javase/8/docs/api/java/net/URLEncoder.html)
 <br>
