@@ -121,7 +121,7 @@ Entity|Required|Length|Restriction|Description
 |`list`||||_아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자|영업사원ID|
 |`usernm`|필수|128||영업사원명|
-|`userphone`|필수|11|숫자(-제외)|영업사원 휴대폰번호|
+|`userphone`|필수|11|숫자|영업사원 휴대폰번호|
 |`validyn`|필수|1|Y or N|활성화상태|
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|영업사원 패스워드|
 |`branchid`|선택|19|영문, 숫자|지점ID|
@@ -169,14 +169,14 @@ Entity|Required|Length|Restriction|Description
 |`list`|||| _아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID|
 |`custcode` **[PK]**|필수|100|영문, 숫자|거래처 코드|
-|`custphone` **[PK]**|필수|11|숫자(-제외)|거래처 휴대폰번호|
+|`custphone` **[PK]**|필수|11|숫자|거래처 휴대폰번호|
 |`custname`|필수|100||거래처명|
 |`useyn`|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
 |`custaddress1`|필수|128||거래처 주소1|
 |`custaddress2`|선택|128||거래처 주소2|
 |`custzip`|선택|5|숫자|거래처 우편번호|
-|`businessno`|선택|10|숫자(-제외)|거래처 사업자번호|
-|`custfax`|선택|20|숫자(-제외)|거래처 팩스번호|
+|`businessno`|선택|10|숫자|거래처 사업자번호|
+|`custfax`|선택|20|숫자|거래처 팩스번호|
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 
 ```json
