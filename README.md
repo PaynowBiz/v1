@@ -445,7 +445,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |Entity|Required|Description
 |-----|-----|-----|
 |`amount`|필수|매입금액|
-|`vat`|필수|부가세|
+|`vat`|필수|수수료[부가세포함]|
 |`authnum`|필수|승인번호|
 |`servicename`|필수|서비스명(카드,현금)|
 |`purchasecode`|카드필수|[매입상태코드](#7-7-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
