@@ -15,11 +15,11 @@ import org.json.simple.parser.JSONParser;
 
 public class Request {
 /* 순서(IDX)를 바꿔가면서 테스트를 진행한다. 
- *      ㄴ 0 : 지점 등록/수정, 1 : 영업사원 등록/수정, 2 : 거래처 등록/수정/삭제, 3 : 거래내역조회, 4 : 정산내역조회, 5 : 결제취소, 6 : 결제취소(상점주문번호)
- *      ㄴ 0, 1, 2 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
+ *      ㄴ 0 : 지점 등록/수정, 1 : 영업사원 등록/수정, 2 : 거래처 등록/수정/삭제, 3 : 거래내역조회, 4 : 정산내역조회, 5 : 결제취소, 6 : 결제취소(상점주문번호), 7 : 상품 등록/수정
+ *      ㄴ 0, 1, 2, 7 인 경우 RESPONSE를 확인하여, result.status in (201, 202) 이면 데이터 정비 후 재요청 시도 한다.
  */
-private final static int IDX = 2;
-private final static List<String> SERVICECODE = Arrays.asList("branch", "member", "customer", "payments", "settlements", "cancel", "cancelShopOid");
+private final static int IDX = 3;
+private final static List<String> SERVICECODE = Arrays.asList("branch", "member", "customer", "payments", "settlements", "cancel", "cancelShopOid", "goods");
 private final static String PAYNOWBIZ_MERTID = "{mertid}";   //PaynowBiz에서 가입한 가맹점ID
 //※중요 : {certkey, apikey}는 안전한 곳에 보관하시기 바랍니다.
 private final static String PAYNOWBIZ_CERTKEY = "{certkey}"; //PaynowBiz에서 발급받은 인증키 ☎)1544-7772
@@ -82,7 +82,17 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"tid\":\"{TossPayments 거래번호}\"," +		    		
         "  \"shop_oid\":\"{간편결제로 상점에서 요청한 주문번호}\"" +		    		
         "}";
-        List<String> jsonData = Arrays.asList(jsonBranch, jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel);
+	    	//상품 등록/수정
+    		String jsonGoods = "{" +
+    		"  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
+    		"  \"reqid\":\""+getRequestApiTime()+"\"," +
+    		"  \"list\": [" + 
+    		"    {\"no\":\"biz-001-0001\",\"name\":\"아메리카노(HOT)\",\"price\":\"5000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group1\":\"음료\",\"group2\":\"커피\"},"+
+		    "    {\"no\":\"biz-001-0002\",\"name\":\"바닐라라떼(HOT)\",\"price\":\"6000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group2\":\"커피\"},"+
+		    "    {\"no\":\"biz-002-0001\",\"name\":\"굿즈T-shirt\",\"price\":\"20000\",\"visible\":\"0\",\"taxfree\":\"1\"}"+
+		    "  ]" + 
+		    "}";      
+        List<String> jsonData = Arrays.asList(jsonBranch, jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel, jsonGoods);
     
         String encryptData = new AESUtil(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
         System.out.println("[REQUEST] data="+encryptData);
@@ -202,6 +212,21 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("businessno=%s, ", jsonObj.get("businessno")));
               System.out.printf(String.format("custfax=%s, ", jsonObj.get("custfax")));
               System.out.printf(String.format("custemail=%s\n", jsonObj.get("custemail")));
+            }
+          //[오류확인] 상품 등록/수정
+          }else if("goods".equals(SERVICECODE.get(IDX))){
+            for (Object obj : arrJSON) {
+              JSONObject jsonObj = (JSONObject)obj;
+              System.out.printf(String.format("▶▶ err=%s, ", jsonObj.get("err")));
+              System.out.printf(String.format("no[PK]=%s, ", jsonObj.get("no")));
+              System.out.printf(String.format("name=%s, ", jsonObj.get("name")));
+              System.out.printf(String.format("price=%s, ", jsonObj.get("price")));
+              System.out.printf(String.format("visible=%s, ", jsonObj.get("visible")));
+              System.out.printf(String.format("taxfree=%s, ", jsonObj.get("taxfree")));
+              System.out.printf(String.format("group1=%s, ", jsonObj.get("group1")));
+              System.out.printf(String.format("group2=%s, ", jsonObj.get("group2")));
+              System.out.printf(String.format("group3=%s, ", jsonObj.get("group3")));
+              System.out.printf(String.format("medictype=%s\n, ", jsonObj.get("medictype")));
             }
           }
         }	
