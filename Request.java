@@ -82,16 +82,16 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"tid\":\"{TossPayments 거래번호}\"," +		    		
         "  \"shop_oid\":\"{간편결제로 상점에서 요청한 주문번호}\"" +		    		
         "}";
-	    	//상품 등록/수정
-    		String jsonGoods = "{" +
-    		"  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
-    		"  \"reqid\":\""+getRequestApiTime()+"\"," +
-    		"  \"list\": [" + 
-    		"    {\"no\":\"biz-001-0001\",\"name\":\"아메리카노(HOT)\",\"price\":\"5000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group1\":\"음료\",\"group2\":\"커피\"},"+
-		    "    {\"no\":\"biz-001-0002\",\"name\":\"바닐라라떼(HOT)\",\"price\":\"6000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group2\":\"커피\"},"+
-		    "    {\"no\":\"biz-002-0001\",\"name\":\"굿즈T-shirt\",\"price\":\"20000\",\"visible\":\"0\",\"taxfree\":\"1\"}"+
-		    "  ]" + 
-		    "}";      
+	//상품 등록/수정
+	String jsonGoods = "{" +
+	"  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
+	"  \"reqid\":\""+getRequestApiTime()+"\"," +
+	"  \"list\": [" + 
+	"    {\"no\":\"biz-001-0001\",\"name\":\"아메리카노(HOT)\",\"price\":\"5000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group1\":\"음료\",\"group2\":\"커피\"},"+
+	"    {\"no\":\"biz-001-0002\",\"name\":\"바닐라라떼(HOT)\",\"price\":\"6000\",\"visible\":\"1\",\"taxfree\":\"0\",\"group1\":\"\",\"group2\":\"커피\"},"+
+	"    {\"no\":\"biz-002-0001\",\"name\":\"굿즈T-shirt\",\"price\":\"20000\",\"visible\":\"0\",\"taxfree\":\"1\"}"+
+	"  ]" + 
+	"}";      
         List<String> jsonData = Arrays.asList(jsonBranch, jsonMember, jsonCustomer, jsonRetrieve, jsonRetrieve, jsonCancel, jsonCancel, jsonGoods);
     
         String encryptData = new AESUtil(PAYNOWBIZ_APIKEY).strEncode(jsonData.get(IDX));
