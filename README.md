@@ -468,8 +468,8 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`authnum`|카드필수,현금부분필수|승인번호|
 |**`paydate`**|카드필수,현금부분필수|**결제일(YYYYMMDDHH24MISS)**|
 |**`canceldate`**|취소필수|**취소일(YYYYMMDDHH24MISS)**|
-|`financecode`|카드필수|카드사코드(2자리)|
-|`financename`|카드필수|카드사명|
+|`financecode`|카드필수|발급사 카드사코드(2자리)|
+|`financename`|카드필수|발급사 카드사명|
 |`installment`|카드필수|카드할부개월수|
 |`cardflag`|카드필수|카드구분(신용,체크,기프트)|
 |`productinfo`|선택|상품명|
