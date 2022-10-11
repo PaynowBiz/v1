@@ -6,13 +6,13 @@
 [4. data](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
-　[6-1. 지점관리 등록/수정](#6-1-지점-등록수정-servicecode--branch) <br>
-　[6-2. 영업사원관리 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
-　[6-3. 거래처 등록/수정/삭제](#6-3-거래처-등록수정삭제-servicecode--customer) <br>
+　[6-1. 지점관리](#6-1-지점관리-servicecode--branch) <br>
+　[6-2. 영업사원관리](#6-2-영업사원관리-servicecode--member) <br>
+　[6-3. 거래처관리](#6-3-거래처관리-servicecode--customer) <br>
 　[6-4. 거래/정산 내역 조회](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-5. 결제취소](#6-5-결제취소-servicecode--cancel) <br>
 　[6-6. 결제취소(상점 주문번호)](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
-　[6-7. 상품관리 등록/수정](#6-7-상품관리-등록수정-servicecode--goods) <br> 
+　[6-7. 상품관리](#6-7-상품관리-servicecode--goods) <br> 
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
 　[7-2. 지점, 영업사원, 거래처, 상품](#7-2-지점-영업사원-거래처-상품-servicecode-inbranch-member-customer-goods) <br>
@@ -38,14 +38,14 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 <br>
 
 ## 3. servicecode
- 0) [branch](#6-1-지점-등록수정-servicecode--branch) : 지점 등록 / 수정
- 1) [member](#6-2-영업사원-등록수정-servicecode--member) : 상점 영업사원 등록 / 수정
- 2) [customer](#6-3-거래처-등록수정삭제-servicecode--customer) : 거래처 등록 /수정 / 삭제
+ 0) [branch](#6-1-지점관리-servicecode--branch) : 지점 등록/수정
+ 1) [member](#6-2-영업사원관리-servicecode--member) : 상점 영업사원 등록/수정
+ 2) [customer](#6-3-거래처관리-servicecode--customer) : 거래처 등록/수정/삭제
  3) [payments](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) : 거래내역 조회
  4) [settlements](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) : 정산내역 조회
  5) [cancel](#6-5-결제취소-servicecode--cancel) : 결제취소
  6) [cancelShopOid](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
- 
+ 7) [goods](#6-7-상품관리-servicecode--goods) : 상품 등록/수정
 <br>
 
 ## 4. data
@@ -66,7 +66,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
 ## 6. 요청정보
 <br>
 
-## 6-1. 지점 등록/수정 `servicecode = branch`
+## 6-1. 지점관리 `servicecode = branch`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -113,7 +113,7 @@ Entity|Required|Length|Restriction|Description
 ```
 <br>
 
-## 6-2. 영업사원 등록/수정 `servicecode = member`
+## 6-2. 영업사원관리 `servicecode = member`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -161,7 +161,7 @@ Entity|Required|Length|Restriction|Description
 ```
 <br>
 
-## 6-3. 거래처 등록/수정/삭제 `servicecode = customer`
+## 6-3. 거래처관리 `servicecode = customer`
 |Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
@@ -281,7 +281,7 @@ Entity|Required|Length|Restriction|Description
 ```
 <br>
 
-## 6-7. 상품관리 등록/수정 `servicecode = goods`
+## 6-7. 상품관리 `servicecode = goods`
 Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
