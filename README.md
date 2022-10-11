@@ -6,15 +6,16 @@
 [4. data](#4-data) <br>
 [5. 주의사항](#5-주의사항) <br>
 [6. 요청 정보](#6-요청정보) <br>
-　[6-1. 지점 등록/수정](#6-1-지점-등록수정-servicecode--branch) <br>
-　[6-2. 영업사원 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
+　[6-1. 지점관리 등록/수정](#6-1-지점-등록수정-servicecode--branch) <br>
+　[6-2. 영업사원관리 등록/수정](#6-2-영업사원-등록수정-servicecode--member) <br>
 　[6-3. 거래처 등록/수정/삭제](#6-3-거래처-등록수정삭제-servicecode--customer) <br>
 　[6-4. 거래/정산 내역 조회](#6-4-거래정산-내역-조회-servicecode-inpayments-settlements) <br>
 　[6-5. 결제취소](#6-5-결제취소-servicecode--cancel) <br>
 　[6-6. 결제취소(상점 주문번호)](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
+　[6-7. 상품관리 등록/수정](#6-7-상품관리-등록수정-servicecode--goods) <br> 
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
-　[7-2. 지점, 영업사원, 거래처](#7-2-지점-영업사원-거래처-servicecode-inbranch-member-customer) <br>
+　[7-2. 지점, 영업사원, 거래처, 상품](#7-2-지점-영업사원-거래처-상품-servicecode-inbranch-member-customer-goods) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
@@ -280,6 +281,53 @@ Entity|Required|Length|Restriction|Description
 ```
 <br>
 
+## 6-7. 상품관리 등록/수정 `servicecode = goods`
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`list`||||_아래 정보를 배열로 처리_|
+|`no` **[PK]**|필수|20||상점에서 관리하는 상품번호|
+|`name` |필수|25||상품명|
+|`price`|필수|9|숫자|판매가격|
+|`visible`| 필수|1|0:비노출,1:노출|상품노출여부|
+|`taxfree`|필수|1|0:과세,1:면세|부가세설정(스마트팜상점은 무조건 과세)|
+|`group1`|선택|128||대분류|
+|`group2`|선택|128||중분류|
+|`group3`|선택|128||소분류|
+|`medictype`|선택|1|0:일반,1:전문|의약품설정(스마트팜상점 전용)|
+```json
+{
+  "certkey": "{PanowBiz에서 발급받은 인증키}",
+  "reqid": "{yyyyMMddHHmmssSSS}",
+  "list": [
+    {
+      "no": "biz-001-0001",
+      "name": "아메리카노(HOT)",
+      "price": "1500",
+      "visible": "1",
+      "taxfree": "0",
+      "group1": "음료",
+      "group2": "커피",
+      "group3": "",
+      "mdictype": ""
+    },
+    {
+      "no": "biz-001-0002",
+      "name": "아메리카노(ICE)",
+      "price": "2000",
+      "visible": "0",
+      "taxfree": "0",
+      "group1": "",
+      "group2": "커피",
+      "group3": "",
+      "medictype": ""
+    }
+  ]
+}
+```
+<br>
+
 ## 7. 응답정보
 <br>
 
@@ -296,7 +344,7 @@ result.status|Description
 999|시스템 오류가 있을 경우
 <br>
 
-## 7-2. 지점, 영업사원, 거래처 `servicecode in(branch, member, customer)`
+## 7-2. 지점, 영업사원, 거래처, 상품 `servicecode in(branch, member, customer, goods)`
 ```json
 {
   "result": {
