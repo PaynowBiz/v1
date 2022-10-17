@@ -193,7 +193,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("usernm=%s, ", jsonObj.get("usernm")));
               System.out.printf(String.format("userphone=%s, ", jsonObj.get("userphone")));
               System.out.printf(String.format("userpw=%s, ", jsonObj.get("userpw")));
-              System.out.printf(String.format("validyn=%s\n", jsonObj.get("validyn")));
+              System.out.printf(String.format("validyn=%s, ", jsonObj.get("validyn")));
               System.out.printf(String.format("branchid=%s\n", jsonObj.get("branchid")));              
             }
           //[오류확인] 영업사원별 거래처 등록/수정/삭제
