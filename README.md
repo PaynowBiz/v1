@@ -224,6 +224,7 @@ Entity|Required|Length|Restriction|Description
 |`enddt`|필수|8|숫자|종료일[YYYYMMDD]|
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
+|`userid`|선택|19|영문,숫자|직원ID| 
 
 ▶ _**`startdt`** ~ **`enddt`** 의 조회기준 은 아래와 같습니다._<br>
 ▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
@@ -236,7 +237,8 @@ Entity|Required|Length|Restriction|Description
   "startdt":"20210101", 
   "enddt":"20210131",
   "oid":"{PaynowBiz 주문번호}",
-  "tid":"{TossPayments 거래번호}"
+  "tid":"{TossPayments 거래번호}",
+  "userid":"직원ID" 
 }
 ```
 <br>
