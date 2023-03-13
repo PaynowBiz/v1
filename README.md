@@ -48,6 +48,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
  5) [cancel](#6-5-결제취소-servicecode--cancel) : 결제취소
  6) [cancelShopOid](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) : 결제취소(상점 주문번호)
  7) [goods](#6-7-상품관리-servicecode--goods) : 상품 등록/수정
+ 8) [partCancel](#6-8-부분취소-servicecode--partcancel) : 부분취소
 <br>
 
 ## 4. data
