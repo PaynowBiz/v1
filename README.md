@@ -13,16 +13,18 @@
 　[6-5. 결제취소](#6-5-결제취소-servicecode--cancel) <br>
 　[6-6. 결제취소(상점 주문번호)](#6-6-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
 　[6-7. 상품관리](#6-7-상품관리-servicecode--goods) <br> 
+　[6-8. 부분취소](#6-8-부분취소-servicecode--partcancel) <br>
 [7. 응답 정보](#7-응답정보) <br>
 　[7-1. status](#7-1-응답-status) <br>
 　[7-2. 지점, 영업사원, 거래처, 상품](#7-2-지점-영업사원-거래처-상품-servicecode-inbranch-member-customer-goods) <br>
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
-　[7-6. 거래내역조회 응답값 설명](#7-6-거래내역조회-응답값-설명-servicecode--payments) <br>
-　[7-7. 정산내역조회 응답값 설명](#7-7-정산내역조회-응답값-설명-servicecode--settlements)<br>
-　[7-7-1. 정산 매입상태 설명](#7-7-1-정산-매입상태-설명) <br>
-　[7-8. 결제취소 응답값 설명](#7-8-결제취소-응답값-설명-servicecode-incancel-cancelshopoid) <br>
+　[7-6. 부분취소](7-6-부분취소-servicecode--partcancel) <br>
+　[7-7. 거래내역조회 응답값 설명](#7-7-거래내역조회-응답값-설명-servicecode--payments) <br>
+　[7-8. 정산내역조회 응답값 설명](#7-8-정산내역조회-응답값-설명-servicecode--settlements)<br>
+　[7-8-1. 정산 매입상태 설명](#7-8-1-정산-매입상태-설명) <br>
+　[7-9. 결제취소 응답값 설명](#7-9-결제취소-응답값-설명-servicecode-incancel-cancelshopoid-partcancel) <br>
 [8. 문의하기](#8-문의하기) <br>
  
 ## 1. 개요
@@ -172,13 +174,14 @@ Entity|Required|Length|Restriction|Description
 |`custcode` **[PK]**|필수|100|영문, 숫자|거래처 코드|
 |`custphone` **[PK]**|필수|11|숫자|거래처 휴대폰번호|
 |`custname`|필수|100||거래처명|
-|`useyn`|필수|1|Y or N or D|Y:사용, N:사용안함, D:삭제|
+|`useyn`|필수|1|Y or N or D or U|Y:사용, N:사용안함, D:삭제, U:수정(chgcustphone변경시)|
 |`custaddress1`|필수|128||거래처 주소1|
 |`custaddress2`|선택|128||거래처 주소2|
 |`custzip`|선택|5|숫자|거래처 우편번호|
 |`businessno`|선택|10|숫자|거래처 사업자번호|
 |`custfax`|선택|20|숫자|거래처 팩스번호|
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
+|`chgcustphone`|선택|11|숫자|변경 거래처 휴대폰번호(useyn:U)|
 
 ```json
 {
@@ -206,9 +209,10 @@ Entity|Required|Length|Restriction|Description
       "custaddress2": "15층 역삼약국",
       "custzip": "12345",
       "custphone": "01077775678",
+      "chgcustphone": "01099995678",
       "custfax": "0212345678",
       "custemail": "paynowbiz@tosspayments.com",
-      "useyn": "Y"
+      "useyn": "U"
     }
   ]
 }
@@ -326,6 +330,30 @@ Entity|Required|Length|Restriction|Description
       "medictype": ""
     }
   ]
+}
+```
+<br>
+
+## 6-8. 부분취소 `servicecode = partCancel`
+Entity|Required|Length|Restriction|Description
+|-----|:-----:|-----:|-----|-----|
+|`certkey`|필수|16|영문,숫자|인증키|
+|`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
+|`type`|필수|4|card|결제수단(카드)|
+|`cancelamount`|필수|10|숫자|부분취소금액|
+|`cancelreason`|필수|100||취소사유|
+|`oid`|부분필수|18|영문,숫자|PaynowBiz 주문번호, **shop_oid 넘기면 oid 안 넘겨도됨**|
+|`shop_oid`|부분필수|64|영문,숫자|App2App 간편결제시 넘긴 상점 주문번호|
+|`tid`|선택|24|영문,숫자|TossPayments 거래번호|
+```json
+{
+  "certkey":"{PanowBiz에서 발급받은 인증키}", 
+  "reqid":"{yyyyMMddHHmmssSSS}", 
+  "type":"card", 
+  "cancelamount":"11000", 
+  "cancelreason":"치약*2ea 환불", 
+  "oid":"{PaynowBiz 주문번호}",
+  "tid":"{TossPayments 거래번호}"
 }
 ```
 <br>
@@ -456,7 +484,31 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 ```
 <br>
 
-## 7-6. 거래내역조회 응답값 설명 `servicecode = payments`
+## 7-6. 부분취소 `servicecode = partCancel`
+```json
+{
+  "result": {
+    "status": "200",
+    "msg": "success",
+    "service": "paynowbiz",
+    "function": "/v1/{mertid}/partCancel",
+    "data": "",
+    "result": {
+      "msg": "부분취소 성공",
+      "code": "0000",
+      "oid": "{PaynowBiz 주문번호}",
+      "tid": "{TossPayments 거래번호}",
+      "paymentamount" : "{원거래 금액}",
+      "cancelamount" : "{부분취소 금액}",
+      "balanceamount" : "{남은 금액}"
+    },
+    "success": true
+  }
+}
+```
+<br>
+
+## 7-7. 거래내역조회 응답값 설명 `servicecode = payments`
 |Entity|Required|Description
 |-----|-----|-----|
 |`userid`|필수|영업사원ID|
@@ -489,7 +541,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |||_부분필수 : 거래처 등록 상점 일 경우 필수_|
 <br>
 
-## 7-7. 정산내역조회 응답값 설명 `servicecode = settlements`
+## 7-8. 정산내역조회 응답값 설명 `servicecode = settlements`
 >결제일`paydate` 다음날 9시 이후부터 조회가 가능합니다.
 >
 |Entity|Required|Description
@@ -522,7 +574,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`medictype`|부분필수|의약품구분(일반,전문)|
 |||_부분필수 : 거래처 등록 상점 일 경우 필수_|
 
-## 7-7-1. 정산 매입상태 설명
+## 7-8-1. 정산 매입상태 설명
 |servicename|purchasecode|purchasename|Description
 |-----|-----|-----|-----|
 |카드|CA01|매입|승인 및 취소된 거래를 카드사로 청구(요청)하는 행위입니다.<br>(매입이 되어야 승인 및 취소가 확정됩니다.)
@@ -535,16 +587,22 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |현금|300|취소|
 <br>
 
-## 7-8. 결제취소 응답값 설명 `servicecode in(cancel, cancelShopOid)`
-_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 `취소성공` `취소예약성공`입니다. <br>
+## 7-9. 결제취소 응답값 설명 `servicecode in(cancel, cancelShopOid, partCancel)`
+_**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 `취소성공` `취소예약성공` `부분취소성공`입니다. <br>
 `취소예약성공`은 당일취소가 아니며,다음날 새벽에 취소처리를 위해 예약이 된 상태를 말합니다.<br>
 그 외의 코드는 msg를 확인 하시기 바랍니다.**_
 |code|msg|
 :-----:|-----|
-0000|취소성공, 취소예약성공
+0000|취소성공, 취소예약성공, 부분취소 성공
+0201|취소 오류가 발생 하였습니다. 다시 시도 해주시기 바랍니다
 0601|이미 취소된 거래입니다
 0602|승인 실패건은 취소할 수 없습니다
 0603|취소예약된 거래입니다
+0604|부분취소 권한이 없습니다
+0605|직가맹 카드 결제는 부분취소 할 수 없습니다
+0606|분할결제 된 거래는 부분취소 할 수 없습니다
+0607|부분취소 금액이 결제액과 같으므로 부분취소 할 수 없습니다
+0608|부분취소 금액이 결제액 보다 크므로 부분취소 할 수 없습니다
 <br>
 
 ## 8. 문의하기
