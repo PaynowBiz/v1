@@ -20,7 +20,7 @@
 　[7-3. 거래/정산 내역 조회](#7-3-거래정산-내역-조회-servicecode-inpayments-setllements) <br>
 　[7-4. 결제취소](#7-4-결제취소-servicecode--cancel) <br>
 　[7-5. 결제취소(상점 주문번호)](#7-5-결제취소상점-주문번호-servicecode--cancelshopoid) <br>
-　[7-6. 부분취소](7-6-부분취소-servicecode--partcancel) <br>
+　[7-6. 부분취소](#7-6-부분취소-servicecode--partcancel) <br>
 　[7-7. 거래내역조회 응답값 설명](#7-7-거래내역조회-응답값-설명-servicecode--payments) <br>
 　[7-8. 정산내역조회 응답값 설명](#7-8-정산내역조회-응답값-설명-servicecode--settlements)<br>
 　[7-8-1. 정산 매입상태 설명](#7-8-1-정산-매입상태-설명) <br>
