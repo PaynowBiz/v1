@@ -560,6 +560,8 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`tid`|필수|TossPayments 거래번호|
 |`regdate`|필수|등록일(YYYY-MM-DD HH24:MI:SS)|
 |`paydate`|필수|결제일(YYYY-MM-DD)|
+|`paytime`|필수|결제일시(YYYY-MM-DD HH24:MI:SS)|
+|`canceltime`|부분필수|취소일시(YYYY-MM-DD HH24:MI:SS)취소일때만|
 |**`adjustdate`**|카드필수|**카드매출일(YYYY-MM-DD)**|
 |`plandate`|카드필수|카드지급일(YYYY-MM-DD)|
 |`reqdate`|카드필수|카드매입/취소 요청일(YYYY-MM-DD)|
