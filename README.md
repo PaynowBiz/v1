@@ -609,4 +609,6 @@ _**`result.status = 200` 이며 `result.result.code` = 0000 인 경우만 `취�
 <br>
 
 ## 8. 문의하기
-☎ 1544-7772
+ >이메일 : techsupport@tosspayments.com<br>
+ >디스코드 : https://discord.gg/b9GFMxqJVN<br>
+ >☎ 1544-7772
