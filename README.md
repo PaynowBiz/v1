@@ -91,6 +91,7 @@ Entity|Required|Length|Restriction|Description
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
+  "app2appyn": "N",
   "list": [
     {
       "branchid": "Gangnam",
