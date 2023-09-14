@@ -32,6 +32,7 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         String jsonBranch = "{" +
         "  \"certkey\":\""+PAYNOWBIZ_CERTKEY+"\"," + 
         "  \"reqid\":\""+getRequestApiTime()+"\"," +
+        "  \"app2appyn\":\"N\"," + // Y = initialname_branchid로 등록됩니다.           
         "  \"list\": [" + 
         "    {\"branchid\":\"Gangnam\",\"branchnm\":\"강남점\",\"usernm\":\"강토스\",\"userphone\":\"01012341001\",\"validyn\":\"Y\",\"userpw\":\"change here\",\"branchaddress1\":\"\",\"branchzip\":\"\"},"+
         "    {\"branchid\":\"yeoksam\",\"branchnm\":\"역삼점\",\"usernm\":\"역토스\",\"userphone\":\"01012341002\",\"validyn\":\"Y\",\"userpw\":\"change here\",\"branchaddress1\":\"서울특별시 강남구 테헤란로 131\",\"branchaddress2\":\"한국지식재산센터(KIPS) 15층\",\"branchzip\":\"06133\",\"branchtel\":\"15447772\"}"+
