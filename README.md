@@ -87,6 +87,7 @@ Entity|Required|Length|Restriction|Description
 |`branchzip`|선택|5||지점 우편번호|
 |`branchtel`|선택|20|숫자|지점 전화번호|
 
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
@@ -132,6 +133,7 @@ Entity|Required|Length|Restriction|Description
 |`userpw`|필수|128|영문, 숫자, 특수문자 포함 8자 이상|영업사원 패스워드|
 |`branchid`|선택|19|영문, 숫자|지점ID|
 
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
@@ -186,6 +188,7 @@ Entity|Required|Length|Restriction|Description
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 |`chgcustphone`|선택|11|숫자|변경 거래처 휴대폰번호(useyn:U)|
 
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
@@ -237,6 +240,8 @@ Entity|Required|Length|Restriction|Description
 ▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
 ▶ 정산내역조회 = **`adjustdate`**<br>
 ▶ ① 1회 조회시 180일 이상 조회 불가, ② 1회 조회시 1만건 이하만 가능<br>
+
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", 
@@ -258,6 +263,8 @@ Entity|Required|Length|Restriction|Description
 |`type`|필수|4|card,cash|결제수단(카드,현금)|
 |`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
+
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", 
@@ -278,6 +285,8 @@ Entity|Required|Length|Restriction|Description
 |`shop_oid`|필수|64|영문,숫자|상점 주문번호|
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
+
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
@@ -305,6 +314,8 @@ Entity|Required|Length|Restriction|Description
 |`group2`|선택|128||중분류|
 |`group3`|선택|128||소분류|
 |`medictype`|선택|1|0:일반,1:전문|의약품설정(스마트팜상점 전용)|
+
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
@@ -348,6 +359,8 @@ Entity|Required|Length|Restriction|Description
 |`oid`|부분필수|18|영문,숫자|PaynowBiz 주문번호, **shop_oid 넘기면 oid 안 넘겨도됨**|
 |`shop_oid`|부분필수|64|영문,숫자|App2App 간편결제시 넘긴 상점 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
+
+**_Data Type of json is STRING_**
 ```json
 {
   "certkey":"{PanowBiz에서 발급받은 인증키}", 
@@ -378,6 +391,7 @@ result.status|Description
 <br>
 
 ## 7-2. 지점, 영업사원, 거래처, 상품 `servicecode in(branch, member, customer, goods)`
+**_Data Type of json is STRING_**
 ```json
 {
   "result": {
@@ -396,6 +410,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 <br>
 
 ## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
+**_Data Type of json is STRING_**
 ```json
 {
   "result": {
@@ -445,6 +460,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 <br>
 
 ## 7-4. 결제취소 `servicecode = cancel`
+**_Data Type of json is STRING_**
 ```json
 {
   "result": {
@@ -466,6 +482,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 <br>
 
 ## 7-5. 결제취소(상점 주문번호) `servicecode = cancelShopOid`
+**_Data Type of json is STRING_**
 ```json
 {
   "result": {
@@ -488,6 +505,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 <br>
 
 ## 7-6. 부분취소 `servicecode = partCancel`
+**_Data Type of json is STRING_**
 ```json
 {
   "result": {
