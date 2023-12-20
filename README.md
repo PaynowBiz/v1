@@ -64,7 +64,7 @@ https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzp
   >`userphone` `custphone` 휴대폰번호가 없는 경우 010으로 시작하는 11자리 임의번호를 기재하시기 바랍니다.
 * `servicecode in (member, branch)`
   >`userpw` 최초 호출시만 저장됩니다. 비밀번호 변경  재요청시 수정이 되지 않습니다.<br> 이후 변경을 원하는 경우 [PaynowBiz상점관리자](https://paynowbiz.tosspayments.com/pnbmert/) 또는 PaynowBiz앱([안드로이드](https://play.google.com/store/apps/details?id=com.lguopg.paynowauth&hl=ko&gl=US)/[iOS](https://apps.apple.com/kr/app/%ED%8E%98%EC%9D%B4%EB%82%98%EC%9A%B0-%EB%B9%84%EC%A6%88-%EC%9D%B8%EC%A6%9D%EC%9A%A9/id1261678163) )에서 변경 가능합니다.
-* 페이나우비즈 API와 통신하는 서버는 HTTP 및 HTTPS 이 지원되어야 하며, TLS 1.2를 지원하는 https 환경이어야 합니다. <br>
+* 페이나우비즈 API와 통신하는 서버는 HTTP 및 HTTPS 가 지원 되어야 하며, TLS 1.2를 지원하는 https 환경이어야 합니다. <br>
   > 구) 암호화 프로토콜인 SSL2.0 / SSL3.0 , TLS1.0, TLS1.1 은 차단되며, TLS1.2 프로토콜만 허용합니다.
 * 언어별 TLS1.2 지원환경
   >`JAVA` JDK8 (1.8) 이상
