@@ -183,7 +183,7 @@ Entity|Required|Length|Restriction|Description
 |`list`|||| _아래 정보를 배열로 처리_|
 |`userid` **[PK]**|필수|19|영문, 숫자	|영업사원ID|
 |`custcode` **[PK]**|필수|100|영문, 숫자|거래처 코드|
-|`custphone` **[PK]**|필수|11|숫자|거래처 휴대폰번호|
+|`custphone` **[PK]**|필수|11|숫자|거래처 연락처처|
 |`custname`|필수|100||거래처명|
 |`useyn`|필수|1|Y or N or D or U|Y:사용, N:사용안함, D:삭제, U:수정(chgcustphone변경시)|
 |`custaddress1`|필수|128||거래처 주소1|
@@ -193,6 +193,7 @@ Entity|Required|Length|Restriction|Description
 |`custfax`|선택|20|숫자|거래처 팩스번호|
 |`custemail`|선택|128|영어/숫자/특수문자|거래처 이메일주소|
 |`chgcustphone`|선택|11|숫자|변경 거래처 휴대폰번호(useyn:U)|
+|`bigo`|선택|128||비고|
 
 **_Data Type of json is STRING_**
 ```json
@@ -208,7 +209,7 @@ Entity|Required|Length|Restriction|Description
       "custaddress1": "서울시 강남구 역삼동 한국지식재산센터",
       "custaddress2": "15층 역삼약국",
       "custzip": "12345",
-      "custphone": "01012345678",
+      "custphone": "027778888",
       "custfax": "0212345678",
       "custemail": "paynowbiz@tosspayments.com",
       "useyn": "Y"
@@ -224,7 +225,8 @@ Entity|Required|Length|Restriction|Description
       "chgcustphone": "01099995678",
       "custfax": "0212345678",
       "custemail": "paynowbiz@tosspayments.com",
-      "useyn": "U"
+      "useyn": "U",
+      "bigo": "VIP고객"
     }
   ]
 }
@@ -266,7 +268,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`type`|필수|4|card,cash|결제수단(카드,현금)|
+|`type`|필수|10|영문|카드:card,현금:cash,이체:transfer)|
 |`oid`|필수|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 
@@ -287,7 +289,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`type`|필수|4|card|결제수단(카드)|
+|`type`|필수|10|영문|카드:card,현금:cash,이체:transfer|
 |`shop_oid`|필수|64|영문,숫자|상점 주문번호|
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
@@ -297,7 +299,7 @@ Entity|Required|Length|Restriction|Description
 {
   "certkey": "{PanowBiz에서 발급받은 인증키}",
   "reqid": "{yyyyMMddHHmmssSSS}",
-  "type": "card",
+  "type": "transfer",
   "shop_oid": "{상점에서 간편결제 요청한 주문번호}",
   "oid": "{PaynowBiz 주문번호}",
   "tid": "{TossPayments 거래번호}"
@@ -359,7 +361,7 @@ Entity|Required|Length|Restriction|Description
 |-----|:-----:|-----:|-----|-----|
 |`certkey`|필수|16|영문,숫자|인증키|
 |`reqid`|필수|17|숫자|yyyyMMddHHmmssSSS|
-|`type`|필수|4|card|결제수단(카드)|
+|`type`|필수|10|영문|카드:card,이체:transfer|
 |`cancelamount`|필수|10|숫자|부분취소금액|
 |`cancelreason`|필수|100||취소사유|
 |`oid`|부분필수|18|영문,숫자|PaynowBiz 주문번호, **shop_oid 넘기면 oid 안 넘겨도됨**|
@@ -542,7 +544,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`usernm`|필수|영업사원명|
 |`amount`|필수|결제금액|
 |`servicename`|필수|서비스명(카드,현금)|
-|`status`|필수|결제상태(카드[승인성공,취소,취소예약중], 현금[결제])|
+|`status`|필수|결제상태(카드[승인성공,취소,취소예약중], 현금^이체[결제,취소])|
 |`oid`|필수|PaynowBiz 주문번호|
 |`tid`|카드필수|TossPayments 거래번호|
 |`cardnum`|카드필수|카드번호|
@@ -578,7 +580,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`amount`|필수|매입금액|
 |`vat`|필수|수수료[부가세포함]|
 |`authnum`|필수|승인번호|
-|`servicename`|필수|서비스명(카드,현금)|
+|`servicename`|필수|서비스명(카드,현금,계좌좌이체)|
 |`cardnum`|카드필수|카드번호|
 |`purchasecode`|카드필수|[매입상태코드](#7-7-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
 |`purchasename`|카드필수|[매입상태명](#7-7-1-%EC%A0%95%EC%82%B0-%EB%A7%A4%EC%9E%85%EC%83%81%ED%83%9C-%EC%84%A4%EB%AA%85)|
@@ -614,6 +616,16 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |카드|CA11|부분취소|
 |현금|200|결제|
 |현금|300|취소|
+|이체|AC99|계좌이체|
+|이체|AC01|이체성공|
+|이체|AC02|이체환불|
+|이체|AC03|이체미통지환불|
+|이체|AC04|이체미확인환불|
+|이체|AC05|이체실패환불|
+|이체|AC07|이체부분환불|
+|이체|AC09|이체부분환불(기타)|
+|이체|AC11|이체당일전체환불|
+|이체|AC12|이체당일부분환불|
 <br>
 
 ## 7-9. 결제취소 응답값 설명 `servicecode in(cancel, cancelShopOid, partCancel)`
