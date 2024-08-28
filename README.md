@@ -557,7 +557,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`cardflag`|카드필수|카드구분(신용,체크,기프트)|
 |`productinfo`|선택|상품명|
 |`memo`|선택|메모|
-|`cashbill`|현금필수|현금영수증발급여부(발급,발급취소,미발급)|
+|`cashbill`|부분필수|현금(발급,발급취소,미발급),이체(소득공제,지출증빙)|
 |`reserved1`|선택|예약필드1|
 |`reserved2`|선택|예약필드2|
 |`reserved3`|선택|예약필드3|
