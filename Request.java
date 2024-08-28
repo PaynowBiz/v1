@@ -58,8 +58,8 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
         "  \"app2appyn\":\"N\"," + //APP(WEB) to PaynowBizAPP을 연동중 AUTO_REG = Y 로 넘겼을 경우 즉, initialname_userid로 등록되는 경우 Y로 넘겨야 합니다. 
         "  \"list\": [" + 
         "    {\"userid\":\"{mertid}\",\"custcode\":\"A001\",\"custphone\":\"01022220001\",\"custname\":\"역삼약국\",\"useyn\":\"Y\",\"custaddress1\":\"서울특별시 강남구 테헤란로 131\",\"custaddress2\":\"한국지식재산센터(KIPS) 15층\",\"custzip\":\"06133\",\"businessno\":\"4118601799\",\"custfax\":\"0222220001\",\"custemail\":\"yeoksam@medic.com\"},"+
-        "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
-        "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220003\",\"custname\":\"도래울약국\",\"useyn\":\"N\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
+        "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"U\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\",\"chgcustphone\":\"01022220003\"},"+ 
+        "    {\"userid\":\"biz001\",\"custcode\":\"A002\",\"custphone\":\"01022220003\",\"custname\":\"도래울약국\",\"useyn\":\"N\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\",\"bigo\":\"임시-사용안함\"},"+ 
         "    {\"userid\":\"biz002\",\"custcode\":\"A002\",\"custphone\":\"01022220002\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+ 
         "    {\"userid\":\"biz003\",\"custcode\":\"A002\",\"custphone\":\"01022220003\",\"custname\":\"도래울약국\",\"useyn\":\"Y\",\"custaddress1\":\"경기도 고양시 덕양구 도래울로 131\",\"custaddress2\":\"도래울빌딩 1층\",\"custzip\":\"01899\",\"businessno\":\"4118601799\",\"custfax\":\"05022220002\",\"custemail\":\"doraeul@medic.com\"},"+
         "    {\"userid\":\"biz001\",\"custcode\":\"A004\",\"custphone\":\"01022220001\",\"useyn\":\"D\"}"+ //삭제일 경우만
@@ -229,6 +229,8 @@ private final static String PAYNOWBIZ_APIURL = "https://upaynowapi.tosspayments.
               System.out.printf(String.format("businessno=%s, ", jsonObj.get("businessno")));
               System.out.printf(String.format("custfax=%s, ", jsonObj.get("custfax")));
               System.out.printf(String.format("custemail=%s\n", jsonObj.get("custemail")));
+              System.out.printf(String.format("chgcustphone=%s\n", jsonObj.get("chgcustphone")));
+              System.out.printf(String.format("bigo=%s\n", jsonObj.get("bigo")));
             }
           //[오류확인] 상품 등록/수정
           }else if("goods".equals(SERVICECODE.get(IDX))){
