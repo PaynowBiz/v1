@@ -579,6 +579,7 @@ _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여
 |`usernm`|필수|영업사원명|
 |`amount`|필수|매입금액|
 |`vat`|필수|수수료[부가세포함]|
+|`vatFee`|필수|수수료의부가세|
 |`authnum`|필수|승인번호|
 |`servicename`|필수|서비스명(카드,현금,계좌좌이체)|
 |`cardnum`|카드필수|카드번호|
