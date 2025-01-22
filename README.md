@@ -35,7 +35,7 @@
 <br>
 
 ## 2. URL정보
-https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCX6rYg3==
+`https://upaynowapi.tosspayments.com/2/v1/{mertid}/{servicecode}&data=WLqCPfNlbzpJDJKy5WCX6rYg3==`
 >**`mertid`**[PaynowBiz 상점ID]  **`servicecode`**[서비스코드] **`data`**[요청할 정보를 암호화 한 값]
 <br>
 
