@@ -243,6 +243,7 @@ Entity|Required|Length|Restriction|Description
 |`oid`|선택|18|영문,숫자|PaynowBiz 주문번호|
 |`tid`|선택|24|영문,숫자|TossPayments 거래번호|
 |`userid`|선택|19|영문,숫자|직원ID| 
+|`shop_oid`|선택|64|영문,숫자|상점 주문번호|
 
 ▶ _**`startdt`** ~ **`enddt`** 의 조회기준 은 아래와 같습니다._<br>
 ▶ 거래내역조회 = **`paydate`** OR **`canceldate`**<br>
