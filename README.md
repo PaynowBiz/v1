@@ -415,7 +415,6 @@ result.status|Description
 }
 ```
 _**`result.status in (201, 202)` 인 경우 `result.result` 를 복호화 하여 `result.result.list.err` 의 실패 원인을 확인**_
-![image](https://user-images.githubusercontent.com/79068689/111751929-67293780-88d8-11eb-8c2f-bbdd76413379.png)
 <br>
 
 ## 7-3. 거래/정산 내역 조회 `servicecode in(payments, setllements)`
